@@ -18,14 +18,27 @@ class Naloga(object):
 		self.st = st
 		self.img = img
 
+	def __eq__(self, other):
+		return self.st == other.st
+
+	def __hash__(self):
+		return hash(self.st)
+
 class Pola(object):
 	def __init__(self, path):
 		self.imgs = convert_from_path(path)
 		self.naloge = []
 
-	def generate_exercises(self):
-		for img in self.imgs:
-			self.naloge.extend(self._get_exercises(img))
+	def generate_exercises(self, skip=0):
+		for i in range(skip, len(self.imgs)):
+			double_img = Image.new("RGB", (self.imgs[i].size[0], self.imgs[i].size[1]*2))
+			double_img.paste(self.imgs[i], (0, 0))
+
+			if i + 1 < len(self.imgs):
+				double_img.paste(self.imgs[i+1], (0, self.imgs[i].size[1]))
+
+			#double_img.show()
+			self.naloge.extend(list(set(self._get_exercises(double_img)) - set(self.naloge)))
 
 	def save(self, path):
 		if not os.path.isdir(path):
@@ -75,11 +88,14 @@ class Pola(object):
 	def _get_exercises(self, img, padding=20):
 		size = img.size
 
-		params_left = (185,180,245,size[1])
+		params_left = (185,0,245,size[1])
 		top_left = self._get_left_coords(img, params_left)
 
-		params_right = (size[0]-310,180,size[0]-190,size[1])
+		params_right = (size[0]-310,0,size[0]-190,size[1])
 		bottom_right = self._get_right_coords(img, params_right)
+
+		if bottom_right and top_left and bottom_right[0].y2 < top_left[0].y1:
+			bottom_right.pop(0)
 
 		tmp = []
 		for i in range(min(len(top_left), len(bottom_right))):
@@ -88,10 +104,10 @@ class Pola(object):
 					top_left[i].letter,
 					img.crop(
 						(
-							top_left[i].x1-padding,
-							top_left[i].y1-padding,
-							bottom_right[i].x2+padding,
-							bottom_right[i].y2+padding)
+							top_left[i].x1 - padding,
+							top_left[i].y1 - padding,
+							bottom_right[i].x2 + padding,
+							bottom_right[i].y2 + padding)
 						)
 					)
 				)
@@ -100,6 +116,10 @@ class Pola(object):
 
 
 if __name__ == '__main__':
-	pola = Pola("M062-401-1-1.pdf")
-	pola.generate_exercises()
-	pola.save("test1")
+	pdf = "../pdfs/M052-103-1-2.pdf"
+	pola = Pola(pdf)
+	pola.generate_exercises(skip=3)
+
+	path = os.path.join("..", "data", "slovenscina")
+	file_path = os.path.join(path, os.path.splitext(os.path.basename(pdf))[0])
+	pola.save(file_path)
