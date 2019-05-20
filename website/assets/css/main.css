@@ -2,7 +2,6 @@
 
 body {
 	font-family: 'Nunito Sans', sans-serif;
-	height: 100%;
 }
 
 nav {
@@ -17,4 +16,66 @@ nav div ul li a:hover {
 	max-height: 64px !important;
 	padding: 15px 0 !important;
 	height: 100vh;
+}
+
+.valign-wrapper {
+	height: 80vh;
+}
+
+.dropdown-trigger {
+	box-shadow: none !important;
+	border-bottom: 1px solid black;
+	font-size: 30px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.dropdown-trigger:hover {
+	cursor: pointer !important;;
+}
+
+.down-arrow {
+	padding-left: 15px;
+}
+
+.down-arrow:hover {
+	cursor: pointer;
+}
+
+.select-wrapper+label {
+	top: -35px !important;
+}
+
+.select-dropdown {
+	font-size: 30px !important;
+	color: black !important;
+}
+
+.dropdown-content li span {
+	font-size: 20px;
+	color: black;
+	padding-left: 2px;
+}
+
+.dropdown-content {
+	border: none;
+	box-shadow: none;
+}
+
+.dropdown-content li span:hover {
+	background: white;
+}
+
+.selectBtn {
+	margin-top: 30px;
+	box-shadow: none;
+	background: url("../images/btn.png");
+	background-size: cover;
+}
+
+.selectBtn:hover {
+	background: url("../images/btn.png");
+	background-size: cover;
+	box-shadow: none;
+	cursor: pointer;
 }
