@@ -15,7 +15,7 @@ html_content = html.fromstring(r.content)
 contentArea = html_content.xpath("//div[@id='contentArea']")
 
 for i in html_content.xpath("//a[@rel='ATTACH']"):
-	if "pola 1" in i.text and "italijanska različica" not in i.text and "madžarska različica" not in i.text:
+	if "pola 2" in i.text and "italijanska različica" not in i.text and "madžarska različica" not in i.text:
 		url = i.get("href")
 		print(url_base + url)
-		open("../pdfs/matematika/pola 1/" + url.split("/")[2] + ".pdf", "wb").write(requests.get(url_base + url, headers=headers).content)
+		open("../pdfs/matematika/pola 2/vr/" + url.split("/")[2] + ".pdf", "wb").write(requests.get(url_base + url, headers=headers).content)
