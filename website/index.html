@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="theme-color" content="#000000">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="shortcut icon" href="assets/images/favicon.ico">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -12,26 +13,26 @@
 </head>
 <body>
 	
-<nav class="white">
-	<div class="nav-wrapper container">
+<nav class="white row">
+	<div class="nav-wrapper col s10 offset-s1">
 		<a href="#" class="brand-logo black-text"><img src="assets/images/logo-long.svg" alt="Maturino" class="logoImg"></a>
 		<a href="#" class="sidenav-trigger black-text" data-target="mobile-demo">X</a>
 		<ul class="right hide-on-med-and-down">
-			<li><a class=" black-text" href="#">O nas</a></li>
-			<li><a class=" black-text" href="#">Kontakt</a></li>
+			<li><a class="aboutBtns black-text" href="#"><span class="expand">O nas</span></a></li>
+			<li><a class="aboutBtns black-text" href="#"><span class="expand">Kontakt</span></a></li>
 		</ul>
 	</div>
 </nav>
 
 <ul class="sidenav" id="mobile-demo">
-	<li><a class=" black-text" href="#">O nas</a></li>
-	<li><a class=" black-text" href="#">Kontakt</a></li>
+	<li><a class="black-text" href="#">O nas</a></li>
+	<li><a class="black-text" href="#">Kontakt</a></li>
 </ul>
 
-<div class="valign-wrapper container">
+<div class="valign-wrapper selecting">
 	<div class="row">
 		<div class="col s12">
-			<div class="col s3">
+			<div class="col s3 offset-s1">
 				<div class="input-field col s12">
 				    <select>
 				      <option value="1" selected class="white">Slovenščina</option>
@@ -40,41 +41,67 @@
 				    <label style="font-size: 15px;">Predmet</label>
 				  </div>
 			</div>
-			<div class="center col s3">
+			<div class="center col s2">
 				<div class="input-field col s12">
 				    <select>
-				      <option value="1" selected class="white">Slovenščina</option>
-				      <option value="2" class="white">Matematika</option>
+				      <option value="1" selected class="white">Osnovna</option>
+				      <option value="2" class="white">Višja</option>
 				    </select>
-				    <label style="font-size: 15px;">Predmet</label>
+				    <label style="font-size: 15px;">Raven</label>
+				  </div>
+			</div>
+			<div class="center col s2">
+				<div class="input-field col s12">
+				    <select>
+				      <option value="1" selected class="white">2018</option>
+				      <option value="2" class="white">2017</option>
+				      <option value="2" class="white">2017</option>
+				      <option value="2" class="white">2017</option>
+				      <option value="2" class="white">2017</option>
+				      <option value="2" class="white">2017</option>
+				      <option value="2" class="white">2017</option>
+				      <option value="2" class="white">2017</option>
+				    </select>
+				    <label style="font-size: 15px;">Leto</label>
 				  </div>
 			</div>
 			<div class="center col s3">
 				<div class="input-field col s12">
 				    <select>
-				      <option value="1" selected class="white">Slovenščina</option>
-				      <option value="2" class="white">Matematika</option>
+				      <option value="1" selected class="white">Spomladanski</option>
+				      <option value="2" class="white">Jesenski</option>
 				    </select>
-				    <label style="font-size: 15px;">Predmet</label>
-				  </div>
-			</div>
-			<div class="center col s3">
-				<div class="input-field col s12">
-				    <select>
-				      <option value="1" selected class="white">Slovenščina</option>
-				      <option value="2" class="white">Matematika</option>
-				    </select>
-				    <label style="font-size: 15px;">Predmet</label>
+				    <label style="font-size: 15px;">Rok</label>
 				  </div>
 			</div>
 		</div>
 		<div class="col s12">
 			<div class="col s2 offset-s5 center">
-				<a class="waves-effect waves-light btn-large selectBtn">Prikaži</a>
+				<a href="#naloga" class="waves-effect waves-light btn-large selectBtn"><b>Prikaži</b></a>
 			</div>
 		</div>
 	</div>
 </div>
+
+<div class="slovene-wrapper valign-wrapper white-text center-align row" id="naloga">
+	<div class="slovene white-text center-align col s10 offset-s1">
+		<h3 class="besediloTxt">Besedilo</h3>
+		<div class="besedilo">
+			<img draggable="false" src="assets/images/besedilo.png" alt="Besedilo" class="besediloImg">
+		</div>
+		<h3 class="vprasanjeTxt">Vprašanje</h3>
+		<div class="vprasanje">
+			<img draggable="false" src="assets/images/vprasanje.png" alt="Besedilo" class="vprasanjeImg besediloImg">
+		</div>
+		<div class="col s4 offset-s4 center">
+			<a href="#naloga" class="waves-effect waves-light btn-large selectBtnLight selectBtn black-text"><b>Novo vprašanje</b></a>
+		</div>
+		<div class="col s2 offset-s5 center">
+			<a href="#naloga" class="waves-effect waves-light btn-large selectBtn selectBtnLight selectBtnOutline white-text"><b>Rešitve</b></a>
+		</div>
+	</div>
+</div>
+
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"

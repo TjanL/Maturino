@@ -1,11 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap');
+@import url('scrollbar.css');
+@import url('buttonUnderline.css');
 
-body {
-	font-family: 'Nunito Sans', sans-serif;
+* {
+	font-family: 'Nunito Sans', sans-serif !important;
+}
+
+body:hover {
+	cursor: default;
 }
 
 nav {
 	box-shadow: none !important;
+	max-height: 11.5vh;
+	height: 100vh;
+}
+
+nav div ul li a {
+	line-height: 3vh;
 }
 
 nav div ul li a:hover {
@@ -13,69 +25,130 @@ nav div ul li a:hover {
 }
 
 .logoImg {
-	max-height: 64px !important;
+	max-height: 11.5vh !important;
 	padding: 15px 0 !important;
 	height: 100vh;
 }
 
-.valign-wrapper {
-	height: 80vh;
+.selecting {
+	height: 70vh;
+	margin-top: 5vh;
 }
 
-.dropdown-trigger {
-	box-shadow: none !important;
-	border-bottom: 1px solid black;
-	font-size: 30px;
-	padding-left: 0px;
-	padding-right: 0px;
+.aboutBtns {
+	font-weight: bold !important;
+	font-size: 3vh !important;
 }
 
-.dropdown-trigger:hover {
-	cursor: pointer !important;;
-}
-
-.down-arrow {
-	padding-left: 15px;
-}
-
-.down-arrow:hover {
-	cursor: pointer;
-}
-
-.select-wrapper+label {
-	top: -35px !important;
-}
-
-.select-dropdown {
-	font-size: 30px !important;
-	color: black !important;
-}
-
-.dropdown-content li span {
-	font-size: 20px;
-	color: black;
-	padding-left: 2px;
-}
-
-.dropdown-content {
-	border: none;
-	box-shadow: none;
-}
-
-.dropdown-content li span:hover {
-	background: white;
+nav .nav-wrapper ul li {
+	line-height: 11.5vh;
 }
 
 .selectBtn {
 	margin-top: 30px;
+	font-size: 20px;
 	box-shadow: none;
-	background: url("../images/btn.png");
+	background: url("../images/btn.svg");
 	background-size: cover;
+	text-transform: none;
 }
 
 .selectBtn:hover {
-	background: url("../images/btn.png");
+	background: url("../images/btn.svg");
 	background-size: cover;
 	box-shadow: none;
 	cursor: pointer;
+}
+
+.dropdown-content li span{
+	color: black;
+}
+
+.dropdown-trigger {
+	font-weight: bold;
+	font-size: 1.8vw !important;
+}
+
+nav .container {
+	width: 80% !important;
+}
+
+.dropdown-content li span {
+	font-weight: bold !important;
+	font-size: 1.8vw !important;
+}
+
+.dropdown-content {
+	top: -5px;
+	border-radius: 0px !important;
+}
+
+.slovene-wrapper {
+	height: auto;
+	padding: 90px 0;
+	background: black;
+	transform: skewY(-5deg);ž
+
+}
+
+.slovene {
+	transform: skewY(5deg);
+	width: 100%;
+	display: inline-block;
+}
+
+.slovene-wrapper .slovene h3 {
+	font-weight: bold;
+	color: white;
+	float: left;
+	font-family: 'Nunito Sans', sans-serif !important;
+}
+
+.besedilo {
+	height: 60vh;
+	overflow: scroll;
+	display: inline-block;
+	width: 100%;
+	border: 10px solid white;
+}
+
+.besediloImg {
+	width: 100%;
+}
+
+.besediloTxt {
+	line-height: unset !important;
+	margin-bottom: 0px !important;
+}
+
+.vprasanjeImg {
+	border: 10px solid white;
+}
+
+.selectBtnLight {
+	background: url('../images/btnLight.svg');
+	background-size: cover;
+	margin-top: 30px;
+	display: inline-block;
+}
+
+.selectBtnLight:hover {
+	background: url('../images/btnLight.svg');
+	background-size: cover;
+}
+
+.resitve {
+	height: 6vh;
+	display: inline-block;
+	width: 100%;
+}
+
+.selectBtnOutline {
+	background: url('../images/resitveOutline.svg');
+	background-size: cover;
+}
+
+.selectBtnOutline:hover {
+	background: url('../images/resitveOutline.svg');
+	background-size: cover;
 }
