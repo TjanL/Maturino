@@ -34,42 +34,53 @@
 		<div class="col s12">
 			<div class="col s3 offset-s1">
 				<div class="input-field col s12">
-				    <select>
-				      <option value="1" selected class="white">Slovenščina</option>
-				      <option value="2" class="white">Matematika</option>
+				    <select id="predmet">
+				      <option value="unset" selected class="white">Izberi predmet</option>
+				      <option value="slovenscina" class="white">Slovenščina</option>
+				      <option value="matematika" class="white">Matematika</option>
 				    </select>
 				    <label style="font-size: 15px;">Predmet</label>
 				  </div>
 			</div>
 			<div class="center col s2">
 				<div class="input-field col s12">
-				    <select>
-				      <option value="1" selected class="white">Osnovna</option>
-				      <option value="2" class="white">Višja</option>
+				    <select id="raven">
+				      <option value="unset" selected class="white">Izberi raven</option>
+				      <option value="or" class="white">Osnovna</option>
+				      <option value="vr" class="white">Višja</option>
 				    </select>
 				    <label style="font-size: 15px;">Raven</label>
 				  </div>
 			</div>
 			<div class="center col s2">
 				<div class="input-field col s12">
-				    <select>
-				      <option value="1" selected class="white">2018</option>
-				      <option value="2" class="white">2017</option>
-				      <option value="2" class="white">2017</option>
-				      <option value="2" class="white">2017</option>
-				      <option value="2" class="white">2017</option>
-				      <option value="2" class="white">2017</option>
-				      <option value="2" class="white">2017</option>
-				      <option value="2" class="white">2017</option>
+				    <select id="leto">
+				      <option value="unset" selected class="white">Izberi leto</option>
+				      <option value="2018" class="white">2018</option>
+				      <option value="2017" class="white">2017</option>
+				      <option value="2016" class="white">2016</option>
+				      <option value="2015" class="white">2015</option>
+				      <option value="2014" class="white">2014</option>
+				      <option value="2013" class="white">2013</option>
+				      <option value="2012" class="white">2012</option>
+				      <option value="2011" class="white">2011</option>
+				      <option value="2010" class="white">2010</option>
+				      <option value="2009" class="white">2009</option>
+				      <option value="2008" class="white">2008</option>
+				      <option value="2007" class="white">2007</option>
+				      <option value="2006" class="white">2006</option>
+				      <option value="2005" class="white">2005</option>
+				      <option value="2004" class="white">2004</option>
 				    </select>
 				    <label style="font-size: 15px;">Leto</label>
 				  </div>
 			</div>
 			<div class="center col s3">
 				<div class="input-field col s12">
-				    <select>
-				      <option value="1" selected class="white">Spomladanski</option>
-				      <option value="2" class="white">Jesenski</option>
+				    <select id="rok">
+				      <option value="unset" selected class="white">Izberi rok</option>
+				      <option value="pomlad" class="white">Spomladanski</option>
+				      <option value="jesen" class="white">Jesenski</option>
 				    </select>
 				    <label style="font-size: 15px;">Rok</label>
 				  </div>
@@ -77,31 +88,55 @@
 		</div>
 		<div class="col s12">
 			<div class="col s2 offset-s5 center">
-				<a href="#naloga" class="waves-effect waves-light btn-large selectBtn"><b>Prikaži</b></a>
+				<a id="show" href="#naloga" class="btn-flat btn-large selectBtn white-text"><b>Prikaži</b></a>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="slovene-wrapper valign-wrapper white-text center-align row" id="naloga">
-	<div class="slovene white-text center-align col s10 offset-s1">
+<div class="subject-wrapper valign-wrapper white-text center-align row" id="slovene">
+	<div class="subject white-text center-align col s10 offset-s1">
 		<h3 class="besediloTxt">Besedilo</h3>
 		<div class="besedilo">
-			<img draggable="false" src="assets/images/besedilo.png" alt="Besedilo" class="besediloImg">
+			<img draggable="false" src="assets/images/besedilo.png" alt="Besedilo" class="besediloImg" id="dodatno">
 		</div>
 		<h3 class="vprasanjeTxt">Vprašanje</h3>
 		<div class="vprasanje">
-			<img draggable="false" src="assets/images/vprasanje.png" alt="Besedilo" class="vprasanjeImg besediloImg">
+			<img draggable="false" src="assets/images/vprasanje.png" alt="Besedilo" class="vprasanjeImg besediloImg" id="naloga">
 		</div>
 		<div class="col s4 offset-s4 center">
-			<a href="#naloga" class="waves-effect waves-light btn-large selectBtnLight selectBtn black-text"><b>Novo vprašanje</b></a>
+			<a href="" id="newQuestion" class="btn-flat btn-large selectBtnLight selectBtn black-text"><b>Novo vprašanje</b></a>
 		</div>
 		<div class="col s2 offset-s5 center">
-			<a href="#naloga" class="waves-effect waves-light btn-large selectBtn selectBtnLight selectBtnOutline white-text"><b>Rešitve</b></a>
+			<a href="" id="resitve" class="btn-flat btn-large selectBtn selectBtnLight selectBtnOutline white-text"><b>Rešitve</b></a>
 		</div>
 	</div>
 </div>
 
+<div class="subject-wrapper valign-wrapper white-text center-align row" id="math">
+	<div class="subject white-text center-align col s10 offset-s1">
+		<h3 class="besediloTxt">Formule</h3>
+		<div class="besedilo">
+			<img draggable="false" src="assets/images/besedilo.png" alt="Besedilo" class="besediloImg" id="dodatno">
+		</div>
+		<h3 class="vprasanjeTxt">Vprašanje</h3>
+		<div class="vprasanje">
+			<img draggable="false" src="assets/images/vprasanje.png" alt="Besedilo" class="vprasanjeImg besediloImg" id="naloga">
+		</div>
+		<div class="col s4 offset-s4 center">
+			<a href="" id="newQuestion" class="btn-flat btn-large selectBtnLight selectBtn black-text"><b>Novo vprašanje</b></a>
+		</div>
+		<div class="col s2 offset-s5 center">
+			<a href="" id="resitve" class="btn-flat btn-large selectBtn selectBtnLight selectBtnOutline white-text"><b>Rešitve</b></a>
+		</div>
+	</div>
+</div>
+
+<div class="modal center">
+	<div class="modal-content">
+		<h4>Prosim izberi iz katerega predmeta želiš dobiti nalogo!</h4>
+	</div>
+</div>
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"

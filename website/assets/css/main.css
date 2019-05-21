@@ -83,7 +83,7 @@ nav .container {
 	border-radius: 0px !important;
 }
 
-.slovene-wrapper {
+.subject-wrapper {
 	height: auto;
 	padding: 90px 0;
 	background: black;
@@ -91,13 +91,13 @@ nav .container {
 
 }
 
-.slovene {
+.subject {
 	transform: skewY(5deg);
 	width: 100%;
 	display: inline-block;
 }
 
-.slovene-wrapper .slovene h3 {
+.subject-wrapper .subject h3 {
 	font-weight: bold;
 	color: white;
 	float: left;
@@ -146,9 +146,19 @@ nav .container {
 .selectBtnOutline {
 	background: url('../images/resitveOutline.svg');
 	background-size: cover;
+	padding: 0 60px;
 }
 
 .selectBtnOutline:hover {
 	background: url('../images/resitveOutline.svg');
 	background-size: cover;
+}
+
+.modal-content h4 {
+	margin: 0;
+}
+
+.modal {
+	margin-top: 50vh;
+	transform: translateY(-20vh) !important;
 }
