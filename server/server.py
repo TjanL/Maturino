@@ -1,6 +1,22 @@
 import cherrypy
 import MySQLdb
+import os
+import glob
+import json
 from random import choice
+
+
+class Root(object):
+	def __init__(self, html_dir):
+		# Preload html files to RAM
+		self.html_dir = html_dir
+		self.html_files = {}
+		for file in glob.glob(os.path.join(self.html_dir, "*.html")):
+			self.html_files[os.path.basename(file)] = open(file, encoding="utf8").read()
+
+	@cherrypy.expose
+	def index(self):
+		return self.html_files["index.html"]
 
 
 @cherrypy.expose
@@ -15,9 +31,8 @@ class Api(object):
 			level = params.get("level", "%")
 			year = params.get("year", "%")
 			term = params.get("term", "%")
-			return str(self.db.get_rendom_exercise(subject, level, year, term))
-
-		return str([i for i in vpath])
+			return json.dumps(self.db.get_rendom_exercise(subject, level, year, term), ensure_ascii=False).encode("utf-8")
+		return []
 
 class Database(object):
 	def connect(self, user="admin"):
@@ -42,12 +57,25 @@ class Database(object):
 
 
 if __name__ == '__main__':
-	conf = {
+	api_conf = {
 		'/': {
 			'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
-			'tools.sessions.on': True,
 			'tools.response_headers.on': True,
-			'tools.response_headers.headers': [('Content-Type', 'text/plain'), ('charset', 'utf-8')],
+            'tools.response_headers.headers': [('Content-Type', 'application/json')],
 		}
 	}
-	cherrypy.quickstart(Api(), '/', conf)
+
+	root_conf = {
+	   '/': {
+			'tools.sessions.on': True,
+		},
+		'/assets': {
+			'tools.staticdir.on': True,
+			'tools.staticdir.dir': os.path.abspath('../website/assets')
+		}
+	}
+
+	cherrypy.tree.mount(Api(), '/api', api_conf)
+	cherrypy.tree.mount(Root("../website"), '/', root_conf)
+	cherrypy.server.socket_host = "127.0.0.1"
+	cherrypy.engine.start()
