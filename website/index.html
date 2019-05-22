@@ -59,9 +59,7 @@
 			<div class="center col s12 l2">
 				<div class="input-field col s12">
 				    <select id="raven">
-				      <option value="unset" selected class="white">Izberi raven</option>
-				      <option value="or" class="white">Osnovna</option>
-				      <option value="vr" class="white">Višja</option>
+				      <option value="unset" selected class="white unset">Izberi raven</option>
 				    </select>
 				    <label style="font-size: 15px;">Raven</label>
 				  </div>
@@ -102,7 +100,7 @@
 		</div>
 		<div class="col s12">
 			<div class="col s6 offset-s3 l2 offset-l5 center">
-				<a id="show" href="#" class="btn-flat transparent btn-large selectBtn white-text"><b>&nbsp&nbsp&nbspPrikaži&nbsp&nbsp&nbsp</b></a>
+				<a id="show" class="btn-flat transparent btn-large selectBtn white-text"><b>&nbsp&nbsp&nbspPrikaži&nbsp&nbsp&nbsp</b></a>
 			</div>
 		</div>
 	</div>
@@ -110,25 +108,20 @@
 
 <div class="subject-wrapper valign-wrapper white-text center-align row" id="slovene">
 	<div class="subject white-text center-align col s10 offset-s1">
+		<h3 id="beggining" class="maturaInfo"></h3>
 		<h3 class="besediloTxt">Besedilo</h3>
 		<div class="besedilo">
-			<img draggable="false" src="assets/images/besedilo.png" alt="Besedilo" class="besediloImg" id="dodatno">
+			<img draggable="false" alt="Besedilo" class="besediloImg" id="dodatno">
 		</div>
 		<h3 class="vprasanjeTxt">Vprašanje</h3>
 		<div class="vprasanje">
-			<img draggable="false" src="assets/images/vprasanje.png" alt="Besedilo" class="vprasanjeImg besediloImg" id="naloga">
+			<img draggable="false" alt="Besedilo" class="vprasanjeImg besediloImg" id="naloga">
 		</div>
-		<div class="col s4 offset-s4 center hide-on-med-and-down">
-			<a href="" id="newQuestion" class="btn-flat transparent btn-large selectBtnLight selectBtn black-text"><b>Novo vprašanje</b></a>
+		<div class="col s8 offset-s2 l4 offset-l4 center">
+			<a href="#slovene" id="newQuestion" class="btn-flat btn-large selectBtnLight selectBtn black-text"><b>Novo vprašanje</b></a>
 		</div>
-		<div class="col s4 offset-s4 center hide-on-med-and-down">
-			<a href="" id="resitve" class="btn-flat transparent btn-large selectBtn selectBtnOutline white-text"><b>&nbsp&nbsp&nbsp&nbsp&nbspRešitve&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a>
-		</div>
-		<div class="col s8 offset-s2 center hide-on-large-only">
-			<a href="" id="newQuestion" class="btn-flat btn-large selectBtnLight selectBtn black-text"><b>Novo vprašanje</b></a>
-		</div>
-		<div class="col s6 offset-s2 center hide-on-large-only">
-			<a href="" id="resitve" class="btn-flat transparent btn-large selectBtn selectBtnOutline white-text"><b>&nbsp&nbsp&nbsp&nbsp&nbspRešitve&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a>
+		<div class="col s6 offset-s2 l4 offset-l4 center">
+			<a id="resitve" class="btn-flat transparent btn-large selectBtn selectBtnOutline white-text"><b>&nbsp&nbsp&nbsp&nbsp&nbspRešitve&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a>
 		</div>
 	</div>
 </div>
@@ -137,23 +130,17 @@
 	<div class="subject white-text center-align col s10 offset-s1">
 		<h3 class="besediloTxt">Formule</h3>
 		<div class="besedilo">
-			<img draggable="false" src="assets/images/besedilo.png" alt="Besedilo" class="besediloImg" id="dodatno">
+			<img draggable="false" alt="Besedilo" class="besediloImg" id="dodatno">
 		</div>
 		<h3 class="vprasanjeTxt">Vprašanje</h3>
 		<div class="vprasanje">
-			<img draggable="false" src="assets/images/vprasanje.png" alt="Besedilo" class="vprasanjeImg besediloImg" id="naloga">
+			<img draggable="false" alt="Besedilo" class="vprasanjeImg besediloImg" id="naloga">
 		</div>
-		<div class="col s4 offset-s4 center hide-on-med-and-down">
-			<a href="" id="newQuestion" class="btn-flat btn-large selectBtnLight selectBtn black-text"><b>Novo vprašanje</b></a>
+		<div class="col s8 offset-s2 l4 offset-l4 center">
+			<a id="newQuestion" class="btn-flat btn-large selectBtnLight selectBtn black-text"><b>Novo vprašanje</b></a>
 		</div>
-		<div class="col s4 offset-s4 center hide-on-med-and-down">
-			<a href="" id="resitve" class="btn-flat transparent btn-large selectBtn selectBtnOutline white-text"><b>&nbsp&nbsp&nbsp&nbsp&nbspRešitve&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a>
-		</div>
-		<div class="col s8 offset-s2 center hide-on-large-only">
-			<a href="" id="newQuestion" class="btn-flat btn-large selectBtnLight selectBtn black-text"><b>Novo vprašanje</b></a>
-		</div>
-		<div class="col s6 offset-s2 center hide-on-large-only">
-			<a href="" id="resitve" class="btn-flat transparent btn-large selectBtn selectBtnOutline white-text"><b>&nbsp&nbsp&nbsp&nbsp&nbspRešitve&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a>
+		<div class="col s6 offset-s2 l4 offset-l4 center">
+			<a id="resitve" class="btn-flat transparent btn-large selectBtn selectBtnOutline white-text"><b>&nbsp&nbsp&nbsp&nbsp&nbspRešitve&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a>
 		</div>
 	</div>
 </div>
@@ -168,13 +155,6 @@
 	<div class="modal-content">
 		<h4>Prišlo je do napake</h4>
 		<p>Prosim poskusi kasneje</p>
-	</div>
-</div>
-
-<div id="levelModal" class="modal center">
-	<div class="modal-content">
-		<h4>Napačen rok</h4>
-		<p>Pri slovenščini lahko izbereš le višjo raven.</p>
 	</div>
 </div>
 

@@ -5,8 +5,25 @@ $(document).ready(function() {
 	$('#slovene').fadeOut(0);
 	$('#unsetModal').modal();
 	$('#errorModal').modal();
-	$('#levelModal').modal();
+	$("#predmet").change(function() {
+		setOptions();
+	})
+	setOptions();
 });
+
+function setOptions() {
+	if ($("#predmet").val() == "slovenščina") {
+		$(".unset").removeAttr("selected");
+		$(".matematikaRaven").remove();
+		$("#raven").append("<option value='vr' selected class='white slovenscinaRaven'>Višja</option>");
+		$("#raven").formSelect();
+	} else {
+		$(".slovenscinaRaven").remove();
+		$(".matematikaRaven").remove();
+		$("#raven").append("<option value='or' class='white matematikaRaven'>Osnovna</option><option value='vr' class='white matematikaRaven'>Višja</option>");
+		$("#raven").formSelect();
+	}
+}
 
 function fadeIn(subject) {
 	if (subject == "slovenščina") {
@@ -48,30 +65,32 @@ function makeRequest() {
 
 	} else {
 
-		if (req.level == "or" && req.subject == "slovenscina") {
-			$('#levelModal').modal('open');
-		} else {
-			var requestUrl = $.param(req);
-			requestUrl = "/api/naloga?"+requestUrl;
-			console.log(requestUrl)
+		var requestUrl = $.param(req);
+		requestUrl = "/api/naloga?"+requestUrl;
+		console.log(requestUrl)
 
-			$.getJSON(requestUrl, function(data) {
-				setImageAndUrl("/api/image?i="+data["dodatno"], "/api/image?i="+data["img"], data["rešitve"]);
-				fadeIn(showSubject);
-			}).fail(function() {
-				$('#errorModal').modal('open');
-			});
-		}
+		$.getJSON(requestUrl, function(data) {
+			setImageAndUrl("/api/image?i="+data["dodatno"], "/api/image?i="+data["img"], data["rešitve"], data["predmet"], data["leto"], data["rok"]);
+			fadeIn(showSubject);
+		}).fail(function() {
+			$('#errorModal').modal('open');
+		});
 
 	}
 }
 
-function setImageAndUrl(addPath, exPath, url) {
+function setImageAndUrl(addPath, exPath, url, subject, year, term) {
 	$('#dodatno').attr("src",addPath);
 	$('#naloga').attr("src", exPath);
 	$('#resitve').attr("href", url);
+
+	$('.maturaInfo').text(subject+" "+year+" "+term);
 }
 
 $(document).on("click","#show",function() {
+	makeRequest();
+});
+
+$(document).on("click","#newQuestion",function() {
 	makeRequest();
 });
