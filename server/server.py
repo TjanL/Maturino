@@ -16,6 +16,9 @@ class Root(object):
 		for file in glob.glob(os.path.join(self.html_dir, "*.html")):
 			self.html_files[os.path.basename(file)] = open(file, encoding="utf8").read()
 
+	def error_page(status, message, traceback, version):
+		return status
+
 	@cherrypy.expose
 	def index(self):
 		return self.html_files["index.html"]
@@ -24,6 +27,9 @@ class Root(object):
 class Api(object):
 	def __init__(self):
 		self.db = Database()
+
+	def error_page(status, message, traceback, version):
+		return status
 
 	@cherrypy.expose
 	@cherrypy.tools.allow(methods=["GET"])
@@ -54,6 +60,7 @@ class Api(object):
 					cherrypy.response.headers['Content-Type'] = "image/png"
 					return bytes_io.getvalue()
 		return None
+
 
 class Database(object):
 	def connect(self, user="admin"):
@@ -90,12 +97,14 @@ class Database(object):
 if __name__ == '__main__':
 	api_conf = {
 		'/': {
+			'error_page.default': Api.error_page
 		}
 	}
 
 	root_conf = {
 	   '/': {
 			'tools.sessions.on': True,
+			'error_page.default': Root.error_page
 		},
 		'/assets': {
 			'tools.staticdir.on': True,
