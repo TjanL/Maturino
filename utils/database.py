@@ -1,6 +1,7 @@
 import os
 import glob
 import MySQLdb
+import uuid
 
 
 os.chdir("../data/slovenscina/")
@@ -43,20 +44,27 @@ for matura in glob.glob("pola 2/vr/pomlad/*/[!dodatno]*"):
 	path = os.path.split(matura)[0]
 
 	img_path = matura
-	dodatno = os.path.join(path, "dodatno.png")
-	matura_name = os.path.split(path)[-1]
+	matura_name = os.path.split(path)[-1][:8]
 	nivo = matura.split("/")[1]
 	rok = matura.split("/")[2]
 	date = "20" + matura_name[1:3] + "-1-1"
-	for r in resitve:
-		if matura_name[:-2] in r:
-			resitv = r
-			break
 
-	print(img_path, dodatno, matura_name, nivo, rok, date, resitv)
-	stmt = 'INSERT INTO Naloga (Predmet, Dodatno, Path, Rešitve, Date, Matura, Nivo, Rok) VALUES  (1, %s, %s, %s, %s, %s, %s, %s)'
+	print(img_path, date, matura_name, nivo, rok)
+	stmt = 'INSERT INTO Naloga (Predmet, Dodatno, Path, Rešitve, Date, Matura, Nivo, Rok, UUID) VALUES  (1, (SELECT d.ID from Dodatno d where d.Matura = %s), %s, (SELECT r.ID from Rešitve r where r.Matura = %s), %s, %s, %s, %s, %s)'
 
-	cursor.execute(stmt, [dodatno, img_path, resitv, date, matura_name, nivo, rok])
+	cursor.execute(stmt, [matura_name, img_path, matura_name, date, matura_name, nivo, rok, uuid.uuid4()])
 	db.commit()
+
+"""
+for url in resitve:
+	matura = url.split("/")[-3][:8]
+	print(url, matura)
+
+	stmt = 'INSERT INTO Rešitve (Url, Matura) VALUES  (%s, %s)'
+
+	cursor.execute(stmt, [url, matura])
+	db.commit()
+"""
+
 
 db.close()

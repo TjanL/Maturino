@@ -4,6 +4,8 @@ import os
 import glob
 import json
 from random import choice
+from PIL import Image
+from io import BytesIO
 
 
 class Root(object):
@@ -19,20 +21,39 @@ class Root(object):
 		return self.html_files["index.html"]
 
 
-@cherrypy.expose
 class Api(object):
 	def __init__(self):
 		self.db = Database()
 
+	@cherrypy.expose
+	@cherrypy.tools.allow(methods=["GET"])
 	@cherrypy.tools.accept(media='text/plain')
-	def GET(self, *vpath, **params):
+	def naloga(self, **params):
+		cherrypy.response.headers['Content-Type'] = "application/json"
 		if params:
 			subject = params.get("subject", "%")
 			level = params.get("level", "%")
 			year = params.get("year", "%")
 			term = params.get("term", "%")
 			return json.dumps(self.db.get_rendom_exercise(subject, level, year, term), ensure_ascii=False).encode("utf-8")
-		return []
+		return str([]).encode("utf-8")
+
+	@cherrypy.expose
+	@cherrypy.tools.allow(methods=["GET"])
+	@cherrypy.tools.accept(media='text/plain')
+	def image(self, **params):
+		if params:
+			img_id = params.get("i")
+			if img_id:
+				path = self.db.get_img_path(img_id)
+				if path:
+					bytes_io = BytesIO()
+					img = Image.open("/home/tjan/Documents/matura-naloge/data/slovenscina/pola 2/vr/jesen/M042-103-1-2/8.png")
+					img.save(bytes_io, 'PNG')
+
+					cherrypy.response.headers['Content-Type'] = "image/png"
+					return bytes_io.getvalue()
+		return None
 
 class Database(object):
 	def connect(self, user="admin"):
@@ -43,7 +64,7 @@ class Database(object):
 	def get_exercises(self, subject, level, year, term):
 		db, cursor = self.connect()
 
-		stmt = 'SELECT p.Naziv, n.Dodatno, CONCAT(p.Path, n.Path) as Path, n.Rešitve, n.Matura FROM Naloga n, Predmet p WHERE n.Predmet=p.ID AND p.naziv=%s AND n.nivo LIKE %s AND YEAR(n.Date) LIKE %s AND n.Rok LIKE %s'
+		stmt = 'SELECT p.Naziv as predmet, n.Nivo as raven, YEAR(n.Date) as leto, n.Rok as rok, d.UUID as dodatno, n.UUID as img, r.Url as rešitve FROM Naloga n, Rešitve r, Dodatno d, Predmet p WHERE n.Predmet=p.ID AND n.Dodatno=d.ID and n.Rešitve=r.ID and p.naziv=%s AND n.nivo LIKE %s AND YEAR(n.Date) LIKE %s AND n.Rok LIKE %s'
 
 		cursor.execute(stmt, [subject, level, year, term])
 		db.close()
@@ -54,14 +75,20 @@ class Database(object):
 	def get_rendom_exercise(self, subject, level, year, term):
 		return choice(self.get_exercises(subject, level, year, term))
 
+	def get_img_path(self, img_id):
+		db, cursor = self.connect()
+
+		stmt = 'SELECT CONCAT(p.Path, t.Path) as Path FROM Predmet p, (SELECT n.Predmet, n.Path, n.UUID FROM Naloga n UNION SELECT d.Predmet, d.Path, d.UUID FROM Dodatno d) as t WHERE p.ID = t.Predmet and t.UUID = %s'
+
+		cursor.execute(stmt, [img_id])
+		db.close()
+
+		return cursor.fetchone()
 
 
 if __name__ == '__main__':
 	api_conf = {
 		'/': {
-			'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
-			'tools.response_headers.on': True,
-            'tools.response_headers.headers': [('Content-Type', 'application/json')],
 		}
 	}
 
