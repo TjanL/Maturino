@@ -1,8 +1,7 @@
 $(document).ready(function() {
 	$('.sidenav').sidenav();
 	$('select').formSelect();
-	$('#math').fadeOut(0);
-	$('#slovene').fadeOut(0);
+	$('#task').fadeOut(0);
 	$('#unsetModal').modal();
 	$('#errorModal').modal();
 	$("#predmet").change(function() {
@@ -32,20 +31,6 @@ function setOptions() {
 		$(".matematikaRaven").remove();
 		$("#raven").append("<option value='or' class='white matematikaRaven'>Osnovna</option><option value='vr' class='white matematikaRaven'>Višja</option>");
 		$("#raven").formSelect();
-	}
-}
-
-function fadeIn(subject) {
-	if (subject == "slovenščina") {
-		$('#math').fadeOut(200);
-		setTimeout(function() {
-			$('#slovene').fadeIn(200);
-		}, 210);
-	} else {
-		$('#slovene').fadeOut(200);
-		setTimeout(function() {
-			$('#math').fadeIn(200);
-		}, 210);
 	}
 }
 
@@ -81,7 +66,7 @@ function makeRequest() {
 
 		$.getJSON(requestUrl, function(data) {
 			setImageAndUrl("/api/image?i="+data["dodatno"], "/api/image?i="+data["img"], data["rešitve"], data["predmet"], data["leto"], data["rok"]);
-			fadeIn(showSubject);
+			$("#task").fadeIn(200);
 		}).fail(function() {
 			$('#errorModal').modal('open');
 		});
@@ -113,7 +98,7 @@ $(document).on("click","#show",function() {
 	makeRequest();
 	setTimeout(function() {
 		$('html, body').animate({
-	        scrollTop: $("#slovene").offset().top
+	        scrollTop: $("#task").offset().top
 	    });
 	}, 500);
 });
