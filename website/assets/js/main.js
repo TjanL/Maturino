@@ -18,7 +18,7 @@ $("a[href^='#']").click(function(e) {
 
 	$("body, html").animate({
 		scrollTop: position
-	} /* speed */ );
+	});
 });
 
 function setOptions() {
@@ -111,6 +111,11 @@ function setImageAndUrl(addPath, exPath, url, subject, year, term) {
 
 $(document).on("click","#show",function() {
 	makeRequest();
+	setTimeout(function() {
+		$('html, body').animate({
+	        scrollTop: $("#slovene").offset().top
+	    });
+	}, 500);
 });
 
 $(document).on("click","#newQuestion",function() {

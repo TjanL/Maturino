@@ -194,3 +194,22 @@ nav .container {
 .spinner-blue-only {
 	border-color: #000000;
 }
+
+.st0 {
+	fill: #FFFFFF;
+}
+
+.st2 {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.knofi {
+	margin-top: 20px;
+}
+
+.st3 {
+	font-size: 20px;
+	font-weight: bold;
+	color: #fff;
+}
