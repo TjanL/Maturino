@@ -56,7 +56,7 @@ function makeRequest() {
 			console.log(requestUrl)
 
 			$.getJSON(requestUrl, function(data) {
-				setImageAndUrl(data.Dodatno, data.Path, data.Rešitve);
+				setImageAndUrl("/api/image?i="+data["dodatno"], "/api/image?i="+data["img"], data["rešitve"]);
 				fadeIn(showSubject);
 			}).fail(function() {
 				$('#errorModal').modal('open');
