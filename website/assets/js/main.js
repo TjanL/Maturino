@@ -24,14 +24,23 @@ function fadeIn(subject) {
 
 function makeRequest() {
 
-	var req = {
-		subject:$('#predmet').val(),
-		level:$('#raven').val(),
-		year:$('#leto').val(),
-		term:$('#rok').val()
+	var req = {};
+
+	if ($('#predmet').val() != "unset") {
+		req["subject"] = $('#predmet').val();
+	}
+	if ($('#raven').val() != "unset") {
+		req["level"] = $('#raven').val();
+	}
+	if ($('#leto').val() != "unset") {
+		req["year"] = $('#leto').val();
+	}
+	if ($('#rok').val() != "unset") {
+		req["term"] = $('#rok').val();
 	}
 
-	var showSubject = req.subject;
+
+	var showSubject = $('#predmet').val();
 
 	if (showSubject == "unset") {
 
