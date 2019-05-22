@@ -11,6 +11,16 @@ $(document).ready(function() {
 	setOptions();
 });
 
+$("a[href^='#']").click(function(e) {
+	e.preventDefault();
+	
+	var position = $($(this).attr("href")).offset().top;
+
+	$("body, html").animate({
+		scrollTop: position
+	} /* speed */ );
+});
+
 function setOptions() {
 	if ($("#predmet").val() == "slovenščina") {
 		$(".unset").removeAttr("selected");
@@ -80,9 +90,21 @@ function makeRequest() {
 }
 
 function setImageAndUrl(addPath, exPath, url, subject, year, term) {
+	$(".preloader-wrapper").removeClass("hide");
+	$(".besedilo").addClass("loading");
+	$(".loaderWrapper").removeClass("hide");
+
 	$('#dodatno').attr("src",addPath);
 	$('#naloga').attr("src", exPath);
 	$('#resitve').attr("href", url);
+
+	$('.besedilo').scrollTop(0);
+
+	$("#dodatno").on("load",function() {
+		$(".preloader-wrapper").addClass("hide");
+		$(".besedilo").removeClass("loading");
+		$(".loaderWrapper").addClass("hide");
+	});
 
 	$('.maturaInfo').text(subject+" "+year+" "+term);
 }
