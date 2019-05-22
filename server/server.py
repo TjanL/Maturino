@@ -83,7 +83,8 @@ class Database(object):
 		cursor.execute(stmt, [img_id])
 		db.close()
 
-		return cursor.fetchone()
+		row = cursor.fetchone()[0]
+		return row
 
 
 if __name__ == '__main__':
