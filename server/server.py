@@ -48,7 +48,7 @@ class Api(object):
 				path = self.db.get_img_path(img_id)
 				if path:
 					bytes_io = BytesIO()
-					img = Image.open("/home/tjan/Documents/matura-naloge/data/slovenscina/pola 2/vr/jesen/M042-103-1-2/8.png")
+					img = Image.open(path)
 					img.save(bytes_io, 'PNG')
 
 					cherrypy.response.headers['Content-Type'] = "image/png"
