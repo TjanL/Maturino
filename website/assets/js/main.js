@@ -22,7 +22,6 @@ function fadeIn(subject) {
 }
 
 function makeRequest() {
-	var url = window.location.origin;
 	var params = [$('#predmet').val(),$('#raven').val(),$('#leto').val(),$('#rok').val()];
 
 	if (params[0] == "unset") {
@@ -32,18 +31,18 @@ function makeRequest() {
 		if (params[3] == "unset") {
 			if (params[2] == "unset") {
 				if (params[1] == "unset") {
-					var addUrl = "?subject="+params[0];
+					var addUrl = "/api?subject="+params[0];
 				} else {
-					var addUrl = "?subject="+params[0]+"&level="+params[1];
+					var addUrl = "/api?subject="+params[0]+"&level="+params[1];
 				}
 			} else {
-				var addUrl = "?subject="+params[0]+"&level="+params[1]+"&year="+params[2];
+				var addUrl = "/api?subject="+params[0]+"&level="+params[1]+"&year="+params[2];
 			}
 		} else {
-			var addUrl = "?subject="+params[0]+"&level="+params[1]+"&year="+params[2]+"&term="+params[3];
+			var addUrl = "/api?subject="+params[0]+"&level="+params[1]+"&year="+params[2]+"&term="+params[3];
 		}
 
-		var requestUrl = url+addUrl;
+		var requestUrl = addUrl;
 
 		$.getJSON(requestUrl, function(data) {
 			setImageAndUrl("data.Dodatno", "data.Path", "data.Rešitve");
