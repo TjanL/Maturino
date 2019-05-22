@@ -5,10 +5,11 @@ $(document).ready(function() {
 	$('#slovene').fadeOut(0);
 	$('#unsetModal').modal();
 	$('#errorModal').modal();
+	$('#levelModal').modal();
 });
 
 function fadeIn(subject) {
-	if (subject == "slovenscina") {
+	if (subject == "slovenščina") {
 		$('#math').fadeOut(200);
 		setTimeout(function() {
 			$('#slovene').fadeIn(200);
@@ -22,34 +23,36 @@ function fadeIn(subject) {
 }
 
 function makeRequest() {
-	var params = [$('#predmet').val(),$('#raven').val(),$('#leto').val(),$('#rok').val()];
 
-	if (params[0] == "unset") {
+	var req = {
+		subject:$('#predmet').val(),
+		level:$('#raven').val(),
+		year:$('#leto').val(),
+		term:$('#rok').val()
+	}
+
+	var showSubject = req.subject;
+
+	if (showSubject == "unset") {
+
 		$('#unsetModal').modal('open');
+
 	} else {
 
-		if (params[3] == "unset") {
-			if (params[2] == "unset") {
-				if (params[1] == "unset") {
-					var addUrl = "/api?subject="+params[0];
-				} else {
-					var addUrl = "/api?subject="+params[0]+"&level="+params[1];
-				}
-			} else {
-				var addUrl = "/api?subject="+params[0]+"&level="+params[1]+"&year="+params[2];
-			}
+		if (req.level == "or" && req.subject == "slovenscina") {
+			$('#levelModal').modal('open');
 		} else {
-			var addUrl = "/api?subject="+params[0]+"&level="+params[1]+"&year="+params[2]+"&term="+params[3];
+			var requestUrl = $.param(req);
+			requestUrl = "/api/naloga?"+requestUrl;
+			console.log(requestUrl)
+
+			$.getJSON(requestUrl, function(data) {
+				setImageAndUrl(data.Dodatno, data.Path, data.Rešitve);
+				fadeIn(showSubject);
+			}).fail(function() {
+				$('#errorModal').modal('open');
+			});
 		}
-
-		var requestUrl = addUrl;
-
-		$.getJSON(requestUrl, function(data) {
-			setImageAndUrl("data.Dodatno", "data.Path", "data.Rešitve");
-			fadeIn(params[0]);
-		}).fail(function() {
-			$('#errorModal').modal('open');
-		});
 
 	}
 }
@@ -60,6 +63,6 @@ function setImageAndUrl(addPath, exPath, url) {
 	$('#resitve').attr("href", url);
 }
 
-$('#show').click(function() {
+$(document).on("click","#show",function() {
 	makeRequest();
 });

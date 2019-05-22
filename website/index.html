@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140593822-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-140593822-1');
+	</script>
 	<meta charset="UTF-8">
 	<meta name="theme-color" content="#000000">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="shortcut icon" href="assets/images/favicon.ico">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="assets/css/main.css">
 	<title>Maturino</title>
 </head>
 <body>
 	
-<nav class="white row">
-	<div class="nav-wrapper col s10 offset-s1">
-		<a href="#" class="brand-logo black-text"><img src="assets/images/logo-long.svg" alt="Maturino" class="logoImg"></a>
-		<a href="#" class="sidenav-trigger black-text" data-target="mobile-demo">X</a>
-		<ul class="right hide-on-med-and-down">
-			<li><a class="aboutBtns black-text" href="#"><span class="expand">O nas</span></a></li>
-			<li><a class="aboutBtns black-text" href="#"><span class="expand">Kontakt</span></a></li>
-		</ul>
+<nav class="white">
+	<div class="row">
+		<div class="nav-wrapper col s12 l10 offset-l1">
+			<a href="#" class="brand-logo black-text"><img src="assets/images/logo-long.svg" alt="Maturino" class="logoImg"></a>
+			<a href="#" data-target="mobile-demo" class="sidenav-trigger black-text">
+				<i class="material-icons">
+				menu
+				</i>
+			</a>
+			<ul class="right hide-on-med-and-down">
+				<li><a class="aboutBtns black-text" href="#"><span class="expand">O nas</span></a></li>
+				<li><a class="aboutBtns black-text" href="#"><span class="expand">Kontakt</span></a></li>
+			</ul>
+		</div>
 	</div>
 </nav>
 
@@ -31,18 +45,18 @@
 
 <div class="valign-wrapper selecting">
 	<div class="row">
-		<div class="col s12">
-			<div class="col s3 offset-s1">
+		<div class="col s12 l12">
+			<div class="col s12 l3 offset-l1">
 				<div class="input-field col s12">
 				    <select id="predmet">
 				      <option value="unset" selected class="white">Izberi predmet</option>
-				      <option value="slovenscina" class="white">Slovenščina</option>
+				      <option value="slovenščina" class="white">Slovenščina</option>
 				      <option value="matematika" class="white">Matematika</option>
 				    </select>
 				    <label style="font-size: 15px;">Predmet</label>
 				  </div>
 			</div>
-			<div class="center col s2">
+			<div class="center col s12 l2">
 				<div class="input-field col s12">
 				    <select id="raven">
 				      <option value="unset" selected class="white">Izberi raven</option>
@@ -52,7 +66,7 @@
 				    <label style="font-size: 15px;">Raven</label>
 				  </div>
 			</div>
-			<div class="center col s2">
+			<div class="center col s12 l2">
 				<div class="input-field col s12">
 				    <select id="leto">
 				      <option value="unset" selected class="white">Izberi leto</option>
@@ -75,7 +89,7 @@
 				    <label style="font-size: 15px;">Leto</label>
 				  </div>
 			</div>
-			<div class="center col s3">
+			<div class="center col s12 l3">
 				<div class="input-field col s12">
 				    <select id="rok">
 				      <option value="unset" selected class="white">Izberi rok</option>
@@ -87,7 +101,7 @@
 			</div>
 		</div>
 		<div class="col s12">
-			<div class="col s2 offset-s5 center">
+			<div class="col s6 offset-s3 l2 offset-l5 center">
 				<a id="show" href="#" class="btn-flat transparent btn-large selectBtn white-text"><b>&nbsp&nbsp&nbspPrikaži&nbsp&nbsp&nbsp</b></a>
 			</div>
 		</div>
@@ -104,10 +118,16 @@
 		<div class="vprasanje">
 			<img draggable="false" src="assets/images/vprasanje.png" alt="Besedilo" class="vprasanjeImg besediloImg" id="naloga">
 		</div>
-		<div class="col s4 offset-s4 center">
+		<div class="col s4 offset-s4 center hide-on-med-and-down">
 			<a href="" id="newQuestion" class="btn-flat transparent btn-large selectBtnLight selectBtn black-text"><b>Novo vprašanje</b></a>
 		</div>
-		<div class="col s4 offset-s4 center">
+		<div class="col s4 offset-s4 center hide-on-med-and-down">
+			<a href="" id="resitve" class="btn-flat transparent btn-large selectBtn selectBtnOutline white-text"><b>&nbsp&nbsp&nbsp&nbsp&nbspRešitve&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a>
+		</div>
+		<div class="col s8 offset-s2 center hide-on-large-only">
+			<a href="" id="newQuestion" class="btn-flat btn-large selectBtnLight selectBtn black-text"><b>Novo vprašanje</b></a>
+		</div>
+		<div class="col s6 offset-s2 center hide-on-large-only">
 			<a href="" id="resitve" class="btn-flat transparent btn-large selectBtn selectBtnOutline white-text"><b>&nbsp&nbsp&nbsp&nbsp&nbspRešitve&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a>
 		</div>
 	</div>
@@ -123,10 +143,16 @@
 		<div class="vprasanje">
 			<img draggable="false" src="assets/images/vprasanje.png" alt="Besedilo" class="vprasanjeImg besediloImg" id="naloga">
 		</div>
-		<div class="col s4 offset-s4 center">
+		<div class="col s4 offset-s4 center hide-on-med-and-down">
 			<a href="" id="newQuestion" class="btn-flat btn-large selectBtnLight selectBtn black-text"><b>Novo vprašanje</b></a>
 		</div>
-		<div class="col s2 offset-s5 center">
+		<div class="col s4 offset-s4 center hide-on-med-and-down">
+			<a href="" id="resitve" class="btn-flat transparent btn-large selectBtn selectBtnOutline white-text"><b>&nbsp&nbsp&nbsp&nbsp&nbspRešitve&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a>
+		</div>
+		<div class="col s8 offset-s2 center hide-on-large-only">
+			<a href="" id="newQuestion" class="btn-flat btn-large selectBtnLight selectBtn black-text"><b>Novo vprašanje</b></a>
+		</div>
+		<div class="col s6 offset-s2 center hide-on-large-only">
 			<a href="" id="resitve" class="btn-flat transparent btn-large selectBtn selectBtnOutline white-text"><b>&nbsp&nbsp&nbsp&nbsp&nbspRešitve&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a>
 		</div>
 	</div>
@@ -142,6 +168,13 @@
 	<div class="modal-content">
 		<h4>Prišlo je do napake</h4>
 		<p>Prosim poskusi kasneje</p>
+	</div>
+</div>
+
+<div id="levelModal" class="modal center">
+	<div class="modal-content">
+		<h4>Napačen rok</h4>
+		<p>Pri slovenščini lahko izbereš le višjo raven.</p>
 	</div>
 </div>
 

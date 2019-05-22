@@ -2,12 +2,18 @@
 @import url('scrollbar.css');
 @import url('buttonUnderline.css');
 
-* {
+*:not(.material-icons) {
 	font-family: 'Nunito Sans', sans-serif !important;
 }
 
 body:hover {
 	cursor: default;
+}
+
+.material-icons {
+	line-height: 11.5vh;
+	padding: 15px 0;
+	font-size: 35px !important;
 }
 
 nav {
@@ -25,7 +31,7 @@ nav div ul li a:hover {
 }
 
 .logoImg {
-	max-height: 11.5vh !important;
+	max-height: 10vh !important;
 	padding: 15px 0 !important;
 	height: 100vh;
 }
@@ -64,9 +70,9 @@ nav .nav-wrapper ul li {
 	color: black;
 }
 
-.dropdown-trigger {
+.row .col .col .input-field .select-wrapper .dropdown-trigger {
+	font-size: 2.8vh !important;
 	font-weight: bold;
-	font-size: 1.8vw !important;
 }
 
 nav .container {
@@ -75,7 +81,7 @@ nav .container {
 
 .dropdown-content li span {
 	font-weight: bold !important;
-	font-size: 1.8vw !important;
+	font-size: 2.8vh !important;
 }
 
 .dropdown-content {
