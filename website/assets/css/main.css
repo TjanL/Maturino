@@ -143,17 +143,6 @@ nav .container {
 	width: 100%;
 }
 
-.selectBtnOutline {
-	background: url('../images/resitveOutline.svg');
-	background-size: cover;
-	padding: 0 60px;
-}
-
-.selectBtnOutline:hover {
-	background: url('../images/resitveOutline.svg');
-	background-size: cover;
-}
-
 .modal-content h4 {
 	margin: 0;
 }
@@ -161,4 +150,16 @@ nav .container {
 .modal {
 	margin-top: 50vh;
 	transform: translateY(-20vh) !important;
+}
+
+.selectBtnOutline {
+	background: url('../images/resitveOutline.svg');
+	background-size: cover;
+	margin-top: 30px;
+	display: inline-block;
+}
+
+.selectBtnOutline:hover {
+	background: url('../images/resitveOutline.svg');
+	background-size: cover;
 }

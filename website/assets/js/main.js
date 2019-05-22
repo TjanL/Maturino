@@ -3,15 +3,30 @@ $(document).ready(function() {
 	$('select').formSelect();
 	$('#math').fadeOut(0);
 	$('#slovene').fadeOut(0);
-	$('.modal').modal();
+	$('#unsetModal').modal();
+	$('#errorModal').modal();
 });
+
+function fadeIn(subject) {
+	if (subject == "slovenscina") {
+		$('#math').fadeOut(200);
+		setTimeout(function() {
+			$('#slovene').fadeIn(200);
+		}, 210);
+	} else {
+		$('#slovene').fadeOut(200);
+		setTimeout(function() {
+			$('#math').fadeIn(200);
+		}, 210);
+	}
+}
 
 function makeRequest() {
 	var url = window.location.origin;
 	var params = [$('#predmet').val(),$('#raven').val(),$('#leto').val(),$('#rok').val()];
 
 	if (params[0] == "unset") {
-		$('.modal').modal('open');
+		$('#unsetModal').modal('open');
 	} else {
 
 		if (params[3] == "unset") {
@@ -31,20 +46,11 @@ function makeRequest() {
 		var requestUrl = url+addUrl;
 
 		$.getJSON(requestUrl, function(data) {
-			setImageAndUrl(data.Dodatno, data.Path, data.Rešitve);
+			setImageAndUrl("data.Dodatno", "data.Path", "data.Rešitve");
+			fadeIn(params[0]);
+		}).fail(function() {
+			$('#errorModal').modal('open');
 		});
-
-		if (params[0] == "slovenscina") {
-			$('#math').fadeOut(200);
-			setTimeout(function() {
-				$('#slovene').fadeIn(200);
-			}, 210);
-		} else {
-			$('#slovene').fadeOut(200);
-			setTimeout(function() {
-				$('#math').fadeIn(200);
-			}, 210);
-		}
 
 	}
 }
