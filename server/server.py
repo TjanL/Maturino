@@ -23,6 +23,10 @@ class Root(object):
 	def index(self):
 		return self.html_files["index.html"]
 
+	@cherrypy.expose
+	def about(self):
+		return self.html_files["about.html"]
+
 
 class Api(object):
 	def __init__(self):
