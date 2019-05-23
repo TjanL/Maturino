@@ -2,8 +2,6 @@ $(document).ready(function() {
 	$('.sidenav').sidenav();
 	$('select').formSelect();
 	$('#task').fadeOut(0);
-	$('#unsetModal').modal();
-	$('#errorModal').modal();
 	$("#predmet").change(function() {
 		setOptions();
 	})
@@ -36,6 +34,8 @@ function setOptions() {
 
 function makeRequest() {
 
+	M.Toast.dismissAll();
+
 	var req = {};
 
 	if ($('#predmet').val() != "unset") {
@@ -56,7 +56,15 @@ function makeRequest() {
 
 	if (showSubject == "unset") {
 
-		$('#unsetModal').modal('open');
+		M.toast({
+			html: 'Prosim izberi predmet',
+			classes: 'bigToast hide-on-med-and-down'
+		})
+
+		M.toast({
+			html: 'Prosim izberi predmet',
+			classes: 'smallToast hide-on-large-only'
+		})
 
 	} else {
 
@@ -67,8 +75,18 @@ function makeRequest() {
 		$.getJSON(requestUrl, function(data) {
 			setImageAndUrl("/api/image?i="+data["dodatno"], "/api/image?i="+data["img"], data["rešitve"], data["predmet"], data["leto"], data["rok"]);
 			$("#task").fadeIn(200);
+			return true;
 		}).fail(function() {
-			$('#errorModal').modal('open');
+			M.toast({
+				html: '<span style="font-weight: bold;">Napaka!</span><span>&nbspPoskusi ponovno</span>',
+				classes: 'bigToast hide-on-med-and-down'
+			})
+
+			M.toast({
+				html: '<span style="font-weight: bold;">Napaka!</span><span>&nbspPoskusi ponovno</span>',
+				classes: 'smallToast hide-on-large-only'
+			})
+			return false;
 		});
 
 	}
@@ -95,12 +113,13 @@ function setImageAndUrl(addPath, exPath, url, subject, year, term) {
 }
 
 $(document).on("click","#show",function() {
-	makeRequest();
-	setTimeout(function() {
-		$('html, body').animate({
-	        scrollTop: $("#task").offset().top
-	    });
-	}, 500);
+	if (makeRequest()) {
+		setTimeout(function() {
+			$('html, body').animate({
+		        scrollTop: $("#task").offset().top
+		    });
+		}, 210);
+	}
 });
 
 $(document).on("click","#newQuestion",function() {

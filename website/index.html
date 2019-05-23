@@ -25,22 +25,22 @@
 	<div class="row">
 		<div class="nav-wrapper col s12 l10 offset-l1">
 			<a href="#" class="brand-logo black-text"><img src="assets/images/logo-long.svg" alt="Maturino" class="logoImg"></a>
-			<a href="#" data-target="mobile-demo" class="sidenav-trigger black-text">
+			<a data-target="mobile-demo" class="sidenav-trigger black-text">
 				<i class="material-icons">
 				menu
 				</i>
 			</a>
 			<ul class="right hide-on-med-and-down">
-				<li><a class="aboutBtns black-text" href="#"><span class="expand">O nas</span></a></li>
-				<li><a class="aboutBtns black-text" href="#"><span class="expand">Kontakt</span></a></li>
+				<li><a id="aboutUs" class="aboutBtns black-text"><span class="expand">O nas</span></a></li>
+				<li><a id="contactUs" class="aboutBtns black-text"><span class="expand">Kontakt</span></a></li>
 			</ul>
 		</div>
 	</div>
 </nav>
 
 <ul class="sidenav" id="mobile-demo">
-	<li><a class="black-text" href="#">O nas</a></li>
-	<li><a class="black-text" href="#">Kontakt</a></li>
+	<li><a id="aboutUs" class="black-text">O nas</a></li>
+	<li><a id="contactUs" class="black-text">Kontakt</a></li>
 </ul>
 
 <div class="valign-wrapper selecting">
@@ -99,7 +99,7 @@
 			</div>
 		</div>
 		<div class="col s12">
-			<div class="col s4 offset-s4 l4 offset-l4 center knofi">
+			<div class="col s6 offset-s3 l4 offset-l4 center knofi">
 				<a id="show" class="col s12 l6 offset-l3">
 					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 271.3 78.5" style="enable-background:new 0 0 271.3 78.5;" xml:space="preserve">
 					<style type="text/css">
@@ -137,22 +137,21 @@
 			<img draggable="false" alt="Besedilo" class="besediloImg" id="dodatno">
 		</div>
 		<h3 class="vprasanjeTxt">Vprašanje</h3>
-		<div class="vprasanje">
+		<div class="besedilo">
 			<img draggable="false" alt="Besedilo" class="vprasanjeImg besediloImg" id="naloga">
 		</div>
-		<div class="col s4 offset-s4 l4 offset-l4 center knofi">
+		<div class="col s6 offset-s3 l4 offset-l4 center knofi">
 			<a href="#task" id="newQuestion" class="col s12 l6 offset-l3">
 				<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 271.32 78.47">
 					<defs>
 						<style>.cls-1{fill:#fff;}</style>
 					</defs>
-					<title>btnLight</title>
 					<polygon class="cls-1" points="256.17 78.47 0 72.29 9.31 6.18 271.32 0 256.17 78.47"/>
 					<text class="st2" style="font-size: 30px;" transform="translate(26.56 48.96)">Novo vprašanje</text>
 				</svg>
 			</a>
 		</div>
-		<div class="col s4 offset-s4 l4 offset-l4 center knofi">
+		<div class="col s6 offset-s3 l4 offset-l4 center knofi">
 			<a id="resitve" target="_blank" class="col s12 l6 offset-l3">
 				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 271.3 78.5" style="enable-background:new 0 0 271.3 78.5;" xml:space="preserve">
 					<style type="text/css">
@@ -160,26 +159,11 @@
 						.st1{font-family:'ArialMT';}
 						.st2{font-size:30px;}
 					</style>
-					<path class="st0" d="M229.1,4.3l35.3,69.9L5,68.2l11.3-57.9L229.1,4.3 M231.7,0L12.8,6.2L0,72.3l271.3,6.2L231.7,0L231.7,0z"/>
-					<text transform="matrix(1 0 0 1 70.3133 50.9748)" class="st0 st1 st2">Rešitve</text>
+					<path class="st0" d="M229.1,4.3  l35.3,69.9  L5,68.2  l11.3-57.9  L229.1,4.3  M231.7,0  L12.8,6.2  L0,72.3  l271.3,6.2  L231.7,0  L231.7,0z"/>
+					<text transform="matrix(1 0 0 1 80.3133 50.9748)" class="st0 st1 st2">Rešitve</text>
 				</svg>
-
-
 			</a>
 		</div>
-	</div>
-</div>
-
-<div id="unsetModal" class="modal center">
-	<div class="modal-content">
-		<h4>Prosim izberi iz katerega predmeta želiš dobiti nalogo!</h4>
-	</div>
-</div>
-
-<div id="errorModal" class="modal center">
-	<div class="modal-content">
-		<h4>Prišlo je do napake</h4>
-		<p>Prosim poskusi kasneje</p>
 	</div>
 </div>
 

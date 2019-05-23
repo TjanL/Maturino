@@ -149,15 +149,6 @@ nav .container {
 	width: 100%;
 }
 
-.modal-content h4 {
-	margin: 0;
-}
-
-.modal {
-	margin-top: 50vh;
-	transform: translateY(-20vh) !important;
-}
-
 .selectBtnOutline {
 	background: url('../images/resitveOutline.svg');
 	background-size: cover;
@@ -212,4 +203,14 @@ nav .container {
 	font-size: 20px;
 	font-weight: bold;
 	color: #fff;
+}
+
+.bigToast {
+	background: url('../images/btn.svg');
+	background-size: cover;
+	box-shadow: none;
+}
+
+.smallToast {
+	background: black;
 }
