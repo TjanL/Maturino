@@ -8,6 +8,11 @@ $(document).ready(function() {
 	setOptions();
 });
 
+$(document).on("change", "select", function() {
+	$('option').hasClass('.hidden').remove();
+	alert("Test")
+})
+
 $("a[href^='#']").click(function(e) {
 	e.preventDefault();
 	
@@ -38,23 +43,23 @@ function makeRequest() {
 
 	var req = {};
 
-	if ($('#predmet').val() != "unset") {
+	if ($('#predmet').val() != null) {
 		req["subject"] = $('#predmet').val();
 	}
-	if ($('#raven').val() != "unset") {
+	if ($('#raven').val() != null) {
 		req["level"] = $('#raven').val();
 	}
-	if ($('#leto').val() != "unset") {
+	if ($('#leto').val() != null) {
 		req["year"] = $('#leto').val();
 	}
-	if ($('#rok').val() != "unset") {
+	if ($('#rok').val() != null) {
 		req["term"] = $('#rok').val();
 	}
 
 
 	var showSubject = $('#predmet').val();
 
-	if (showSubject == "unset") {
+	if (showSubject == null) {
 
 		M.toast({
 			html: 'Prosim izberi predmet',
@@ -73,8 +78,9 @@ function makeRequest() {
 		console.log(requestUrl)
 
 		$.getJSON(requestUrl, function(data) {
-			setImageAndUrl("/api/image?i="+data["dodatno"], "/api/image?i="+data["img"], data["rešitve"], data["predmet"], data["leto"], data["rok"]);
+			setImageAndUrl("/api/image?i="+data["dodatno"], "/api/image?i="+data["img"], data["rešitve"], data["predmet"], data["rok"], data["leto"]);
 			$("#task").fadeIn(200);
+			$("footer").removeClass("hide");
 			return true;
 		}).fail(function() {
 			M.toast({
@@ -92,7 +98,7 @@ function makeRequest() {
 	}
 }
 
-function setImageAndUrl(addPath, exPath, url, subject, year, term) {
+function setImageAndUrl(addPath, exPath, url, subject, term, year) {
 	$(".preloader-wrapper").removeClass("hide");
 	$(".besedilo").addClass("loading");
 	$(".loaderWrapper").removeClass("hide");
@@ -109,7 +115,7 @@ function setImageAndUrl(addPath, exPath, url, subject, year, term) {
 		$(".loaderWrapper").addClass("hide");
 	});
 
-	$('.maturaInfo').text(subject+" "+year+" "+term);
+	$('.maturaInfo').text(subject+", "+term+" "+year);
 }
 
 $(document).on("click","#show",function() {

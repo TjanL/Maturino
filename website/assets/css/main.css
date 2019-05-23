@@ -111,7 +111,8 @@ nav .container {
 }
 
 .besedilo {
-	height: 60vh;
+	max-height: 60vh;
+	height: auto;
 	overflow: scroll;
 	display: inline-block;
 	width: 100%;
@@ -213,4 +214,28 @@ nav .container {
 
 .smallToast {
 	background: black;
+}
+
+.footerText.hide-on-med-and-down {
+	font-weight: bold;
+	font-size: 2vw;
+}
+
+.footerText.hide-on-large-only {
+	font-size: 4vw;
+	font-weight: bold;
+}
+
+a:hover {
+	cursor: pointer;
+}
+
+select:required:invalid {
+  color: gray !important;
+}
+option[value=""][disabled] {
+  display: none !important;
+}
+option {
+  color: black !important;
 }

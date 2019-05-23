@@ -48,8 +48,8 @@
 		<div class="col s12 l12">
 			<div class="col s12 l3 offset-l1">
 				<div class="input-field col s12">
-				    <select id="predmet">
-				      <option value="unset" selected class="white">Izberi predmet</option>
+				    <select id="predmet" required>
+				      <option value="" selected disabled class="white hidden">Izberi predmet</option>
 				      <option value="slovenščina" class="white">Slovenščina</option>
 				      <option value="matematika" class="white">Matematika</option>
 				    </select>
@@ -58,8 +58,8 @@
 			</div>
 			<div class="center col s12 l2">
 				<div class="input-field col s12">
-				    <select id="raven">
-				      <option value="unset" selected class="white unset">Izberi raven</option>
+				    <select id="raven" hidden>
+				      <option value="unset" selected disabled class="white unset">Izberi raven</option>
 				    </select>
 				    <label style="font-size: 15px;">Raven</label>
 				  </div>
@@ -67,7 +67,7 @@
 			<div class="center col s12 l2">
 				<div class="input-field col s12">
 				    <select id="leto">
-				      <option value="unset" selected class="white">Izberi leto</option>
+				      <option value="unset" selected disabled class="white">Izberi leto</option>
 				      <option value="2018" class="white">2018</option>
 				      <option value="2017" class="white">2017</option>
 				      <option value="2016" class="white">2016</option>
@@ -90,7 +90,7 @@
 			<div class="center col s12 l3">
 				<div class="input-field col s12">
 				    <select id="rok">
-				      <option value="unset" selected class="white">Izberi rok</option>
+				      <option value="unset" selected disabled class="white">Izberi rok</option>
 				      <option value="pomlad" class="white">Spomladanski</option>
 				      <option value="jesen" class="white">Jesenski</option>
 				    </select>
@@ -99,7 +99,7 @@
 			</div>
 		</div>
 		<div class="col s12">
-			<div class="col s6 offset-s3 l4 offset-l4 center knofi">
+			<div class="col s8 offset-s2 l4 offset-l4 center knofi">
 				<a id="show" class="col s12 l6 offset-l3">
 					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 271.3 78.5" style="enable-background:new 0 0 271.3 78.5;" xml:space="preserve">
 					<style type="text/css">
@@ -118,7 +118,7 @@
 
 <div class="subject-wrapper valign-wrapper white-text center-align row" id="task">
 	<div class="subject white-text center-align col s10 offset-s1">
-		<h3 id="beggining" class="maturaInfo"></h3>
+		<a target="_blank" href="https://www.ric.si"><h3 id="beggining" class="maturaInfo"></h3></a>
 		<h3 class="besediloTxt">Priloga</h3>
 		<div class="besedilo loading">
 			<div class="loaderWrapper">
@@ -134,14 +134,14 @@
 				    </div>
 				  </div>
 				</div>
-			<img draggable="false" alt="Besedilo" class="besediloImg" id="dodatno">
+			<img draggable="false" alt="Priloga" class="besediloImg" id="dodatno">
 		</div>
 		<h3 class="vprasanjeTxt">Vprašanje</h3>
 		<div class="besedilo">
-			<img draggable="false" alt="Besedilo" class="vprasanjeImg besediloImg" id="naloga">
+			<img draggable="false" alt="Naloga" class="besediloImg" id="naloga">
 		</div>
-		<div class="col s6 offset-s3 l4 offset-l4 center knofi">
-			<a href="#task" id="newQuestion" class="col s12 l6 offset-l3">
+		<div class="col s10 offset-s1 m6 offset-m3 l4 offset-l4 center knofi">
+			<a id="newQuestion" class="col s12 l6 offset-l3">
 				<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 271.32 78.47">
 					<defs>
 						<style>.cls-1{fill:#fff;}</style>
@@ -151,7 +151,7 @@
 				</svg>
 			</a>
 		</div>
-		<div class="col s6 offset-s3 l4 offset-l4 center knofi">
+		<div class="col s10 offset-s1 m6 offset-m3 l4 offset-l4 center knofi">
 			<a id="resitve" target="_blank" class="col s12 l6 offset-l3">
 				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 271.3 78.5" style="enable-background:new 0 0 271.3 78.5;" xml:space="preserve">
 					<style type="text/css">
@@ -166,6 +166,13 @@
 		</div>
 	</div>
 </div>
+
+<footer class="page-footer row white hide">
+	<div class="col s10 offset-s1 right-align black-text">
+		<p class="footerText hide-on-large-only">Zaupajte vase in v svoje sposobnosti</p>
+		<p class="footerText hide-on-med-and-down">Zaupajte vase in v svoje sposobnosti</p>
+	</div>
+</footer>
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
