@@ -6,12 +6,8 @@ $(document).ready(function() {
 		setOptions();
 	})
 	setOptions();
+	$("#disclaimerModal").modal();
 });
-
-$(document).on("change", "select", function() {
-	$('option').hasClass('.hidden').remove();
-	alert("Test")
-})
 
 $("a[href^='#']").click(function(e) {
 	e.preventDefault();
@@ -27,12 +23,14 @@ function setOptions() {
 	if ($("#predmet").val() == "slovenščina") {
 		$(".unset").removeAttr("selected");
 		$(".matematikaRaven").remove();
+		$(".nakljucno").remove();
 		$("#raven").append("<option value='vr' selected class='white slovenscinaRaven'>Višja</option>");
 		$("#raven").formSelect();
 	} else {
 		$(".slovenscinaRaven").remove();
 		$(".matematikaRaven").remove();
-		$("#raven").append("<option value='or' class='white matematikaRaven'>Osnovna</option><option value='vr' class='white matematikaRaven'>Višja</option>");
+		$(".nakljucno").remove();
+		$("#raven").append("<option value='' class='white nakljucno'>Naključno</option><option value='or' class='white matematikaRaven'>Osnovna</option><option value='vr' class='white matematikaRaven'>Višja</option>");
 		$("#raven").formSelect();
 	}
 }
@@ -130,4 +128,8 @@ $(document).on("click","#show",function() {
 
 $(document).on("click","#newQuestion",function() {
 	makeRequest();
+});
+
+$(document).on("click","#disclaimer",function() {
+	$("#disclaimerModal").modal('open');
 });

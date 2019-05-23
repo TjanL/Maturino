@@ -112,7 +112,8 @@ nav .container {
 
 .besedilo {
 	max-height: 60vh;
-	height: auto;
+	height: 60vh;
+	background-color: white;
 	overflow: scroll;
 	display: inline-block;
 	width: 100%;
@@ -222,7 +223,7 @@ nav .container {
 }
 
 .footerText.hide-on-large-only {
-	font-size: 4vw;
+	font-size: 6vw;
 	font-weight: bold;
 }
 
@@ -238,4 +239,67 @@ option[value=""][disabled] {
 }
 option {
   color: black !important;
+}
+
+.footerTextBtnSmall {
+	color: black;
+	font-size: 4vw;
+	font-weight: bold;
+	display: inline;
+}
+
+.footerTextBtnBig {
+	color: black;
+	font-size: 1vw;
+	font-weight: bold;
+	display: inline;
+	line-height: 3vw;
+	float: left;
+}
+
+.author {
+	margin-top: 60px;
+}
+
+.floating {
+	float: left;
+}
+
+.textBesideImage {
+	margin-bottom: 0px;
+	padding-left: 30px;
+}
+
+.authorImg {
+	width: 7vw;
+}
+
+.authorName {
+	margin-top: 0px;
+}
+
+@media screen and (max-width: 960px) {
+	.authorImg {
+		width: 16.5vw;
+	}
+
+	.authorName {
+		font-size: 30px;
+	}
+
+	.role {
+		width: 200px;
+	}
+}
+
+.topMargin {
+	margin-top: 50px;
+}
+
+.lastPara {
+	margin-bottom: 100px;
+}
+
+.page-footer.black {
+	padding-top: 0px;
 }
