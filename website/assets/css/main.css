@@ -112,7 +112,6 @@ nav .container {
 
 .besedilo {
 	max-height: 60vh;
-	height: 60vh;
 	background-color: white;
 	overflow: scroll;
 	display: inline-block;
