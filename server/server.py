@@ -20,11 +20,11 @@ class Root(object):
 		return status
 
 	@cherrypy.expose
-	def index(self):
+	def index(self, *vpath, **params):
 		return self.html_files["index.html"]
 
 	@cherrypy.expose
-	def about(self):
+	def about(self, *vpath, **params):
 		return self.html_files["about.html"]
 
 
