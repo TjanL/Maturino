@@ -228,7 +228,7 @@ nav .container {
 }
 
 a:hover {
-	cursor: pointer;
+	cursor: pointer !important;
 }
 
 select:required:invalid {
@@ -271,7 +271,8 @@ option {
 }
 
 .authorImg {
-	width: 7vw;
+	width: 7.8vw;
+	clip-path: polygon(0 6%, 88% 0, 100% 83%, 6% 100%);
 }
 
 .authorName {
@@ -284,12 +285,17 @@ option {
 	}
 
 	.authorName {
-		font-size: 30px;
+		font-size: 20px;
 	}
 
 	.role {
-		width: 200px;
+		width: 300px;
+		font-size: 12px;
 	}
+}
+
+.role {
+	width: 60%;
 }
 
 .topMargin {
@@ -302,4 +308,25 @@ option {
 
 .page-footer.black {
 	padding-top: 0px;
+}
+
+h7 {
+	font-size: 13px;
+}
+
+.author .col h7.hide-on-med-and-down {
+	font-size: 1vw;
+}
+
+.author .col h4 {
+	font-size: 1.8vw;
+}
+
+.footer-copyright.hide-on-large-only h5 {
+	width: 100%;
+}
+
+.knaf {
+	margin-top: 10px;
+	text-transform: none;
 }

@@ -44,13 +44,13 @@ function makeRequest() {
 	if ($('#predmet').val() != null) {
 		req["subject"] = $('#predmet').val();
 	}
-	if ($('#raven').val() != null) {
+	if ($('#raven').val() != null && $('#raven').val() == "unset") {
 		req["level"] = $('#raven').val();
 	}
-	if ($('#leto').val() != null) {
+	if ($('#leto').val() != null && $('#leto').val() == "unset") {
 		req["year"] = $('#leto').val();
 	}
-	if ($('#rok').val() != null) {
+	if ($('#rok').val() != null && $('#rok').val() == "unset") {
 		req["term"] = $('#rok').val();
 	}
 
@@ -73,7 +73,6 @@ function makeRequest() {
 
 		var requestUrl = $.param(req);
 		requestUrl = "/api/naloga?"+requestUrl;
-		console.log(requestUrl)
 
 		$.getJSON(requestUrl, function(data) {
 			setImageAndUrl("/api/image?i="+data["dodatno"], "/api/image?i="+data["img"], data["rešitve"], data["predmet"], data["rok"], data["leto"]);
