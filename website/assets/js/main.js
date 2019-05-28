@@ -54,7 +54,7 @@ $("#Show, #ShowNew").click(function() {
 
 				$('.img-area').scrollTop(0);
 				
-				$("#task").fadeIn(200);
+				$("#Task").fadeIn(200);
 
 				$("body, html").animate({
 					scrollTop: $("#maturaInfo").offset().top,

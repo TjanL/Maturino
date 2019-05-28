@@ -34,6 +34,7 @@ nav {
 #Task {
 	transform: skewY(-5deg);
 	background: black;
+	display: none;
 }
 
 .select-wrapper input.select-dropdown,
