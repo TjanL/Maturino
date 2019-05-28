@@ -45,7 +45,7 @@ $("#Show, #ShowNew").click(function() {
 	} else {
 		$.get({
 			url: "/api/naloga?" + $.param(req),
-			success: function() {
+			success: function(data) {
 				$('#maturaInfo').text(data["predmet"] + ", " + data["rok"] + " " + data["leto"]);
 
 				$('#img-priloga').attr("src", "/api/image?i=" + data["dodatno"]);
