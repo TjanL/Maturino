@@ -24,16 +24,16 @@ $("#predmet").change(function() {
 
 $("#Show, #ShowNew").click(function() {
 	var req = {};
-	if ($('#predmet').val() != null) {
+	if ($('#predmet').val()) {
 		req["subject"] = $('#predmet').val();
 	}
-	if ($('#raven').val() != null) {
+	if ($('#raven').val()) {
 		req["level"] = $('#raven').val();
 	}
-	if ($('#leto').val() != null) {
+	if ($('#leto').val()) {
 		req["year"] = $('#leto').val();
 	}
-	if ($('#rok').val() != null) {
+	if ($('#rok').val()) {
 		req["term"] = $('#rok').val();
 	}
 
