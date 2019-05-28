@@ -79,7 +79,7 @@ nav {
 	font-size: 28px;
 }
 
-.main-btn:hover {
+.main-btn:hover, .main-btn:focus {
 	background: black;
 }
 
@@ -93,7 +93,7 @@ nav {
 	color: black;
 }
 
-.white-btn:hover {
+.white-btn:hover, .white-btn:focus {
 	background: white;
 }
 
