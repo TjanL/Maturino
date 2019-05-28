@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap');
+@import url('buttonUnderline.css');
+
+html {
+	font-family: Nunito Sans, sans-serif;
+}
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+nav {
+	margin-top: 10px
+}
+
+.toast {
+	clip-path: polygon(5% 5%, 100% 10%, 96% 81%, 0 89%);
+	background: black;
+	box-shadow: none;
+}
+
+@media only screen and (max-width: 960px) {
+	.toast {
+		clip-path: none;
+	}
+}
+
+#Task {
+	transform: skewY(-5deg);
+	background: black;
+}
+
+.select-wrapper input.select-dropdown,
+.dropdown-content li span {
+	font-weight: 600 !important;
+	font-size: 2.8vh !important;
+	color: black;
+}
+
+.logo {
+	height: auto;
+	width: 100%;
+	padding: 5px;
+}
+
+.side-logo {
+	margin: 50px 0 50px 0;
+}
+
+.nav-btn, .nav-btn:hover {
+	font-size: 32px;
+	background: none;
+}
+
+.label-big {
+	font-size: 15px !important;
+}
+
+.main-height {
+	height: 65vh;
+}
+
+.main-btn {
+	margin-top: 15px;
+	background: black;
+	clip-path: polygon(3% 10%, 100% 0, 92% 100%, 0 88%);
+	text-transform: none;
+	font-weight: bold;
+	height: 60px;
+	line-height: 60px;
+	width: 200px;
+	font-size: 28px;
+}
+
+.main-btn:hover {
+	background: black;
+}
+
+.white-btn {
+	background: white;
+	text-transform: none;
+	font-weight: bold;
+	height: 55px;
+	line-height: 55px;
+	font-size: 22px;
+	color: black;
+}
+
+.white-btn:hover {
+	background: white;
+}
+
+.btn1 {
+	clip-path: polygon(5% 5%, 100% 10%, 96% 81%, 0 89%);
+}
+
+.btn2 {
+	clip-path: polygon(6% 17%, 92% 9%, 100% 92%, 0 81%);
+}
+
+.text-bold {
+	font-weight: bold;
+}
+
+.img-area {
+	max-height: 60vh;
+	overflow-y: scroll;
+	border: 10px solid white;
+	background: white;
+}
+
+.task-inner {
+	padding: 50px 0 50px 0;
+	transform: skewY(5deg);
+}
+
+.author-img {
+	clip-path: polygon(0 6%, 88% 0, 100% 83%, 6% 100%);
+}
+
+.author-height {
+	min-height: 25vh;
+}

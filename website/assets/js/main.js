@@ -1,134 +1,73 @@
-$(document).ready(function() {
-	$('.sidenav').sidenav();
-	$('select').formSelect();
-	$('#task').fadeOut(0);
-	$("#predmet").change(function() {
-		setOptions();
-	})
-	setOptions();
-	$("#disclaimerModal").modal();
-});
+$('.sidenav').sidenav();
+$('select').formSelect();
+$('.materialboxed').materialbox();
+$("#disclaimerModal").modal();
 
-$("a[href^='#']").click(function(e) {
-	e.preventDefault();
-	
-	var position = $($(this).attr("href")).offset().top;
-
-	$("body, html").animate({
-		scrollTop: position
-	});
-});
-
-function setOptions() {
-	if ($("#predmet").val() == "slovenščina") {
-		$(".unset").removeAttr("selected");
-		$(".matematikaRaven").remove();
-		$(".nakljucno").remove();
-		$("#raven").append("<option value='vr' selected class='white slovenscinaRaven'>Višja</option>");
-		$("#raven").formSelect();
-	} else {
-		$(".slovenscinaRaven").remove();
-		$(".matematikaRaven").remove();
-		$(".nakljucno").remove();
-		$("#raven").append("<option value='' class='white nakljucno'>Naključno</option><option value='or' class='white matematikaRaven'>Osnovna</option><option value='vr' class='white matematikaRaven'>Višja</option>");
-		$("#raven").formSelect();
+$("#predmet").change(function() {
+	var options = {
+		"slovenščina": "vr"
 	}
-}
 
-function makeRequest() {
+	$("#raven").html("");
+	var predmet = $("#predmet").val();
+	if (predmet in options) {
+		var full_name = options[predmet] == "or" ? "Osnovna" : "Višja";
+		$("#raven").append("<option value='" + options[predmet] + "' selected>" + full_name + "</option>");
 
-	M.Toast.dismissAll();
+	} else {
+		$("#raven").append("<option value='' selected>Naključno</option>");
+		$("#raven").append("<option value='or'>Osnovna</option>");
+		$("#raven").append("<option value='vr'>Višja</option>");
+	}
+	$("#raven").formSelect();
+})
 
+$("#Show, #ShowNew").click(function() {
 	var req = {};
-
 	if ($('#predmet').val() != null) {
 		req["subject"] = $('#predmet').val();
 	}
-	if ($('#raven').val() != null && $('#raven').val() == "unset") {
+	if ($('#raven').val() != null) {
 		req["level"] = $('#raven').val();
 	}
-	if ($('#leto').val() != null && $('#leto').val() == "unset") {
+	if ($('#leto').val() != null) {
 		req["year"] = $('#leto').val();
 	}
-	if ($('#rok').val() != null && $('#rok').val() == "unset") {
+	if ($('#rok').val() != null) {
 		req["term"] = $('#rok').val();
 	}
 
-
-	var showSubject = $('#predmet').val();
-
-	if (showSubject == null) {
-
+	if ($('#predmet').val() == null) {
 		M.toast({
 			html: 'Prosim izberi predmet',
-			classes: 'bigToast hide-on-med-and-down'
+			classes: 'toast'
 		})
-
-		M.toast({
-			html: 'Prosim izberi predmet',
-			classes: 'smallToast hide-on-large-only'
-		})
-
 	} else {
+		$.get({
+			url: "/api/naloga?" + $.param(req),
+			success: function() {
+				$('#maturaInfo').text(data["predmet"] + ", " + data["rok"] + " " + data["leto"]);
 
-		var requestUrl = $.param(req);
-		requestUrl = "/api/naloga?"+requestUrl;
+				$('#img-priloga').attr("src", "/api/image?i=" + data["dodatno"]);
+				$('#img-naloga').attr("src", "/api/image?i=" + data["img"]);
+				$('#resitve').attr("href", data["rešitve"]);
 
-		$.getJSON(requestUrl, function(data) {
-			setImageAndUrl("/api/image?i="+data["dodatno"], "/api/image?i="+data["img"], data["rešitve"], data["predmet"], data["rok"], data["leto"]);
-			$("#task").fadeIn(200);
-			$("footer").removeClass("hide");
-			return true;
-		}).fail(function() {
-			M.toast({
+				$('.img-area').scrollTop(0);
+				
+				$("#task").fadeIn(200);
+
+				$("body, html").animate({
+					scrollTop: $("#maturaInfo").offset().top,
+					duration: 1000
+				});
+			},
+			error: function() {
+				M.toast({
 				html: '<span style="font-weight: bold;">Napaka!</span><span>&nbspPoskusi ponovno</span>',
-				classes: 'bigToast hide-on-med-and-down'
-			})
-
-			M.toast({
-				html: '<span style="font-weight: bold;">Napaka!</span><span>&nbspPoskusi ponovno</span>',
-				classes: 'smallToast hide-on-large-only'
-			})
-			return false;
+				classes: 'toast'
+				})
+			},
+			dataType: "json"
 		});
-
 	}
-}
-
-function setImageAndUrl(addPath, exPath, url, subject, term, year) {
-	$(".preloader-wrapper").removeClass("hide");
-	$(".besedilo").addClass("loading");
-	$(".loaderWrapper").removeClass("hide");
-
-	$('#dodatno').attr("src",addPath);
-	$('#naloga').attr("src", exPath);
-	$('#resitve').attr("href", url);
-
-	$('.besedilo').scrollTop(0);
-
-	$("#dodatno").on("load",function() {
-		$(".preloader-wrapper").addClass("hide");
-		$(".besedilo").removeClass("loading");
-		$(".loaderWrapper").addClass("hide");
-	});
-
-	$('.maturaInfo').text(subject+", "+term+" "+year);
-}
-
-$(document).on("click","#show",function() {
-	if (makeRequest()) {
-		setTimeout(function() {
-			$('html, body').animate({
-		        scrollTop: $("#task").offset().top
-		    });
-		}, 210);
-	}
-});
-
-$(document).on("click","#newQuestion",function() {
-	makeRequest();
-});
-
-$(document).on("click","#disclaimer",function() {
-	$("#disclaimerModal").modal('open');
-});
+})

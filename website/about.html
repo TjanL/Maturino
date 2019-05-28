@@ -1,123 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140593822-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-140593822-1');
-	</script>
-	<meta charset="UTF-8">
-	<meta name="theme-color" content="#000000">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<meta property="og:locale" content="sl_SI">
-    <meta property="og:url" content="https://maturino.si">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Maturino">
-    <meta property="og:description" content="Maturino na inovativen način prikaže naloge maturitetnih pol, ki jih izbere uporabnik. To uporabniku prihrani čas, hkrati pa mu omogoči učenje na nov, inovativen način.">
-    <meta property="og:image" content="https://maturino.si/assets/images/logo-long.png">
-    <meta name="description" content="Maturino na inovativen način prikaže naloge maturitetnih pol, ki jih izbere uporabnik. To uporabniku prihrani čas, hkrati pa mu omogoči učenje na nov, inovativen način.">
-    <meta name="author" content="Domen Koščak">
-
-	<link rel="shortcut icon" href="assets/images/favicon.ico">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="assets/css/main.css">
-	<title>Maturino - o nas</title>
-</head>
-<body>
-	
-<nav class="white">
-	<div class="row">
-		<div class="nav-wrapper col s12 l8 offset-l2">
-			<a href="/" class="brand-logo black-text"><img src="assets/images/logo-long.svg" alt="Maturino" class="logoImg"></a>
-			<a data-target="mobile-demo" class="sidenav-trigger black-text">
-				<i class="material-icons">
-				menu
-				</i>
-			</a>
-			<ul class="right hide-on-med-and-down">
-				<li><a href="about" id="aboutUs" class="aboutBtns black-text"><span class="expand">O nas</span></a></li>
+<html>
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140593822-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			
+			gtag('config', 'UA-140593822-1');
+		</script>
+		<title>O nas - Maturino</title>
+		<meta charset="UTF-8">
+		<meta name="theme-color" content="#000000">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta property="og:locale" content="sl_SI">
+		<meta property="og:url" content="https://maturino.si">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Maturino">
+		<meta property="og:description" content="Maturino na inovativen način prikaže naloge maturitetnih pol, ki jih izbere uporabnik. To uporabniku prihrani čas, hkrati pa mu omogoči učenje na nov, inovativen način.">
+		<meta property="og:image" content="https://maturino.si/assets/images/logo-short.png">
+		<meta name="description" content="Maturino na inovativen način prikaže naloge maturitetnih pol, ki jih izbere uporabnik. To uporabniku prihrani čas, hkrati pa mu omogoči učenje na nov, inovativen način.">
+		<meta name="author" content="Maturino Project">
+		<link rel="shortcut icon" href="assets/images/favicon.ico">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="assets/css/stylesheet.css">
+	</head>
+	<body>
+		<header>
+			<nav class="transparent z-depth-0">
+				<div class="row">
+					<div class="nav-wrapper col l10 offset-l1 s12">
+						<a href="/" class="brand-logo"><img class="logo" src="assets/images/logo-long.svg" alt="Maturino"></a>
+						<a href="#" data-target="mobile" class="sidenav-trigger black-text"><i class="material-icons" style="font-size: 32px;">menu</i></a>
+						<ul class="right hide-on-med-and-down">
+							<li><a href="/about" class="black-text nav-btn text-bold expand">O nas</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<ul class="sidenav" id="mobile">
+				<li><a class="center-align side-logo" href="/"><img src="assets/images/logo-short.svg" height=50px></a></li>
+				<li>
+					<div class="divider"></div>
+				</li>
+				<li><a href="/about" style="font-size: 25px;">O nas</a></li>
 			</ul>
+		</header>
+		<main>
+			<dir class="row">
+				<dir class="col l10 offset-l1 s12">
+					<h3 class="text-bold">Projekt</h3>
+					<p>Matura je skupek izpitov, ki jih vsako leto opravlja več tisoč slovenskih srednješolcev. Na maturitetnih izpitih je zahtevano znanje iz vseh let srednješolskega izobraževanja, to pomeni, da je za pripravo nanj potrebno vložiti veliko truda za učenje.</p>
+					<p>V največjo pomoč pri učenju so tistim, ki se pripravljajo, pole preteklih maturitetnih izpitov. Učenje na ta način omogoča pripravljenost na specifičnost nalog maturitetnega preizkusa. Na žalost je dostop do nalog otežen zaradi nepreglednosti strani državnega izpitnega centra in formata v katerem so pole objavljene. Ker smo se tudi sami srečali s tem problemom, smo se odločili razviti nov način iskanja in prikazovanja nalog maturitetnih preizkusov.</p>
+					<p>Maturino na inovativen način prikaže naloge maturitetnih pol, ki jih izbere uporabnik. To uporabniku prihrani čas, hkrati pa mu omogoči učenje na nov, inovativen način.</p>
+				</dir>
+			</dir>
+			<dir class="row">
+				<dir class="col l10 offset-l1 s12">
+					<h3 class="text-bold">Ekipa</h3>
+					<div class="col s12 l6 author-height">
+						<div class="col s4">
+							<img class="responsive-img author-img" src="https://gitlab.com/uploads/-/system/user/avatar/2950093/avatar.png?width=400">
+						</div>
+						<div class="col s7">
+							<h4 class="flow-text text-bold">Tjan Ljubešek</h4>
+							<span class="flow-text">vodja projekta, backend developer</span>
+							<a href="https://www.gitlab.com/Ljubesek" class="btn-flat transparent">Gitlab</a>
+						</div>
+					</div>
+					<div class="col s12 l6 author-height">
+						<div class="col s4">
+							<img class="responsive-img author-img" src="https://gitlab.com/uploads/-/system/user/avatar/3027296/avatar.png?width=400">
+						</div>
+						<div class="col s7">
+							<h4 class="flow-text text-bold">Domen Koščak</h4>
+							<span class="flow-text">frontend developer</span>
+							<a href="https://www.gitlab.com/koscakdomen" class="btn-flat transparent">Gitlab</a>
+						</div>
+					</div>
+					<div class="col s12 l6 author-height">
+						<div class="col s4">
+							<img class="responsive-img author-img" src="https://gitlab.com/uploads/-/system/user/avatar/2497528/avatar.png?width=400">
+						</div>
+						<div class="col s7">
+							<h4 class="flow-text text-bold">Domen Klinc</h4>
+							<span class="flow-text">project manager, UX designer, PR</span>
+							<a href="https://www.gitlab.com/klinc" class="btn-flat transparent">Gitlab</a>
+						</div>
+					</div>
+				</dir>
+			</dir>
+		</main>
+		<footer class="page-footer transparent black-text">
+			<div class="row">
+				<div class="col l10 offset-l1 s10 offset-s1">
+					<h5 class="center-align right">Zaupajte vase in v svoje sposobnosti</h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col l10 offset-l1 s10 offset-s1">
+					© 2019
+					<a class="black-text right modal-trigger" href="#disclaimerModal">Disclamer</a>
+				</div>
+			</div>
+		</footer>
+		<div id="disclaimerModal" class="modal center">
+			<div class="modal-content">
+				<h4>Notice of Non-Affiliation and Disclaimer </h4>
+				<p>We are not affiliated, associated, authorized, endorsed by, or in any way officially connected with National Examinations Centre - RIC, or any of its subsidiaries or its affiliates. The official RIC website can be found at www.ric.si. The name “Državni izpitni center” as well as related names, marks, emblems and images are trademarks of National Examinations Centre - RIC.</p>
+			</div>
 		</div>
-	</div>
-</nav>
-
-<ul class="sidenav" id="mobile-demo">
-	<li><a href="about" id="aboutUs" class="black-text"><h5>O nas</h5></a></li>
-</ul>
-
-<div class="valign-wrapper">
-	<div class="row" style="width: 100%;">
-		<div class="col s10 offset-s1 l8 offset-l2 left-align">
-			<h2><b>Ekipa</b></h2>
-			<div class="col s12 l6 author">
-				<div class="col m8 offset-m2 l12">
-					<img class="floating authorImg" src="https://gitlab.com/uploads/-/system/user/avatar/2950093/avatar.png?width=400" alt="">
-					<h4 class="floating textBesideImage authorName hide-on-med-and-down"><b>Tjan Ljubešek</b></h4>
-					<h5 class="floating textBesideImage authorName hide-on-large-only"><b>Tjan Ljubešek</b></h5>
-					<h7 class="floating textBesideImage role hide-on-med-and-down">vodja projekta, backend developer</h7>
-					<h7 class="floating textBesideImage role hide-on-large-only">vodja projekta, backend developer</h7>
-					<a href="https://www.gitlab.com/Ljubesek" class="btn-flat transparent floating textBesideImage knaf">
-						Gitlab
-					</a>
-				</div>
-			</div>
-			<div class="col s12 l6 author">
-				<div class="col m8 offset-m2 l12">
-					<img class="floating authorImg" src="https://gitlab.com/uploads/-/system/user/avatar/3027296/avatar.png?width=400" alt="">
-					<h4 class="floating textBesideImage authorName hide-on-med-and-down"><b>Domen Koščak</b></h4>
-					<h5 class="floating textBesideImage authorName hide-on-large-only"><b>Domen Koščak</b></h5>
-					<h7 class="floating textBesideImage role hide-on-med-and-down">frontend developer</h7>
-					<h7 class="floating textBesideImage role hide-on-large-only">frontend developer</h7>
-					<a href="https://www.gitlab.com/koscakdomen" class="btn-flat transparent floating textBesideImage knaf">
-						Gitlab
-					</a>
-				</div>
-			</div>
-			<div class="col s12 l6 author">
-				<div class="col m8 offset-m2 l12">
-					<img class="floating authorImg" src="https://gitlab.com/uploads/-/system/user/avatar/2497528/avatar.png?width=400" alt="">
-					<h4 class="floating textBesideImage authorName hide-on-med-and-down"><b>Domen Klinc &nbsp&nbsp</b></h4>
-					<h5 class="floating textBesideImage authorName hide-on-large-only"><b>Domen Klinc</b></h5>
-					<h7 class="floating textBesideImage role hide-on-med-and-down">project manager, UX designer, PR</h7>
-					<h7 class="floating textBesideImage role hide-on-large-only">project manager, UX designer, PR</h7>
-					<a href="https://www.gitlab.com/klinc" class="btn-flat transparent floating textBesideImage knaf">
-						Gitlab
-					</a>
-				</div>
-			</div>
-			<div class="col l12">
-				<h2 class="topMargin"><b>Projekt</b></h2>
-				<div class="col s12 left-align">
-					<h6>Matura je skupek izpitov, ki jih vsako leto opravlja več tisoč slovenskih srednješolcev. Na maturitetnih izpitih je zahtevano znanje iz vseh let srednješolskega izobraževanja, to pomeni, da je za pripravo nanj potrebno vložiti veliko truda za učenje.  </h6>
-					<h6>V največjo pomoč pri učenju so tistim, ki se pripravljajo, pole preteklih maturitetnih izpitov. Učenje na ta način omogoča pripravljenost na specifičnost nalog maturitetnega preizkusa. Na žalost je dostop do nalog otežen zaradi nepreglednosti strani državnega izpitnega centra in formata v katerem so pole objavljene. Ker smo se tudi sami srečali s tem problemom, smo se odločili razviti nov način iskanja in prikazovanja nalog maturitetnih preizkusov. </h6>
-					<h6 class="lastPara">Maturino na inovativen način prikaže naloge maturitetnih pol, ki jih izbere uporabnik. To uporabniku prihrani čas, hkrati pa mu omogoči učenje na nov, inovativen način.  </h6>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<footer class="page-footer black">
-	<div class="footer-copyright container black hide-on-med-and-down">
-		<h5>Zaupajte vase in v svoje sposobnosti</h5>
-		<h5 class="right">&copy; Maturino</h5>
-	</div>
-	<div class="footer-copyright hide-on-large-only center">
-		<h5>Zaupajte vase in v svoje sposobnosti <br> &copy; Maturino</h5>
-	</div>
-</footer>
-
-<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="assets/js/main.js"></script>
-
-</body>
+	</body>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="assets/js/main.js"></script>
 </html>

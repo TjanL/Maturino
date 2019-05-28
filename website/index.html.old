@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140593822-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-140593822-1');
+	</script>
+	<meta charset="UTF-8">
+	<meta name="theme-color" content="#000000">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta property="og:locale" content="sl_SI">
+    <meta property="og:url" content="https://maturino.si">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Maturino">
+    <meta property="og:description" content="Maturino na inovativen način prikaže naloge maturitetnih pol, ki jih izbere uporabnik. To uporabniku prihrani čas, hkrati pa mu omogoči učenje na nov, inovativen način.">
+    <meta property="og:image" content="https://maturino.si/assets/images/logo-long.png">
+    <meta name="description" content="Maturino na inovativen način prikaže naloge maturitetnih pol, ki jih izbere uporabnik. To uporabniku prihrani čas, hkrati pa mu omogoči učenje na nov, inovativen način.">
+    <meta name="author" content="Domen Koščak">
+
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<title>Maturino</title>
+</head>
+<body>
+	
+<nav class="white">
+	<div class="row">
+		<div class="nav-wrapper col s12 l10 offset-l1">
+			<a href="/" class="brand-logo black-text"><img src="assets/images/logo-long.svg" alt="Maturino" class="logoImg"></a>
+			<a data-target="mobile-demo" class="sidenav-trigger black-text">
+				<i class="material-icons">
+				menu
+				</i>
+			</a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="about" id="aboutUs" class="aboutBtns black-text"><span class="expand">O nas</span></a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+	<li><a href="about" id="aboutUs" class="black-text"><h5>O nas</h5></a></li>
+</ul>
+
+<div class="valign-wrapper selecting">
+	<div class="row">
+		<div class="col s12 l12">
+			<div class="col s12 l3 offset-l1">
+				<div class="input-field col s12">
+				    <select id="predmet" required>
+				      <option value="" selected disabled class="white hidden">Izberi predmet</option>
+				      <option value="slovenščina" class="white">Slovenščina</option>
+				      <option value="matematika" class="white">Matematika</option>
+				    </select>
+				    <label style="font-size: 15px;">Predmet</label>
+				  </div>
+			</div>
+			<div class="center col s12 l2">
+				<div class="input-field col s12">
+				    <select id="raven" hidden>
+				      <option value="unset" selected disabled class="white unset">Izberi raven</option>
+				    </select>
+				    <label style="font-size: 15px;">Raven</label>
+				  </div>
+			</div>
+			<div class="center col s12 l2">
+				<div class="input-field col s12">
+				    <select id="leto">
+				      <option value="unset" selected disabled class="white">Izberi leto</option>
+				      <option value="" class="white">Naključno</option>
+				      <option value="2018" class="white">2018</option>
+				      <option value="2017" class="white">2017</option>
+				      <option value="2016" class="white">2016</option>
+				      <option value="2015" class="white">2015</option>
+				      <option value="2014" class="white">2014</option>
+				      <option value="2013" class="white">2013</option>
+				      <option value="2012" class="white">2012</option>
+				      <option value="2011" class="white">2011</option>
+				      <option value="2010" class="white">2010</option>
+				      <option value="2009" class="white">2009</option>
+				      <option value="2008" class="white">2008</option>
+				      <option value="2007" class="white">2007</option>
+				      <option value="2006" class="white">2006</option>
+				      <option value="2005" class="white">2005</option>
+				      <option value="2004" class="white">2004</option>
+				    </select>
+				    <label style="font-size: 15px;">Leto</label>
+				  </div>
+			</div>
+			<div class="center col s12 l3">
+				<div class="input-field col s12">
+				    <select id="rok">
+				      <option value="unset" selected disabled class="white">Izberi rok</option>
+				      <option value="" class="white">Naključno</option>
+				      <option value="pomlad" class="white">Spomladanski</option>
+				      <option value="jesen" class="white">Jesenski</option>
+				    </select>
+				    <label style="font-size: 15px;">Rok</label>
+				  </div>
+			</div>
+		</div>
+		<div class="col s12">
+			<div class="col s8 offset-s2 l4 offset-l4 center knofi">
+				<a id="show" class="col s12 l6 offset-l3">
+					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 271.3 78.5" style="enable-background:new 0 0 271.3 78.5;" xml:space="preserve">
+					<style type="text/css">
+						.st0{fill:#FFFFFF;}
+						.st1{font-family:'ArialMT';}
+						.st2{font-size:30px;}
+					</style>
+					<polygon points="256.2,78.5 0,72.3 9.3,6.2 271.3,0 "/>
+					<text transform="matrix(1 0 0 1 90.6425 47.2516)" class="st0 st1 st2">Prikaži</text>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="subject-wrapper valign-wrapper white-text center-align row" id="task">
+	<div class="subject white-text center-align col s10 offset-s1">
+		<a target="_blank" href="https://www.ric.si"><h3 id="beggining" class="maturaInfo"></h3></a>
+		<h3 class="besediloTxt">Priloga</h3>
+		<div class="besedilo loading">
+			<div class="loaderWrapper">
+				<div class="preloader-wrapper big hide active">
+				    <div class="spinner-layer spinner-blue-only">
+				      <div class="circle-clipper left">
+				        <div class="circle"></div>
+				      </div><div class="gap-patch">
+				        <div class="circle"></div>
+				      </div><div class="circle-clipper right">
+				        <div class="circle"></div>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			<img draggable="false" alt="Priloga" class="besediloImg" id="dodatno">
+		</div>
+		<h3 class="vprasanjeTxt">Vprašanje</h3>
+		<div class="besedilo">
+			<img draggable="false" alt="Naloga" class="besediloImg" id="naloga">
+		</div>
+		<div class="col s10 offset-s1 m6 offset-m3 l4 offset-l4 center knofi">
+			<a id="newQuestion" class="col s12 l6 offset-l3">
+				<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 271.32 78.47">
+					<defs>
+						<style>.cls-1{fill:#fff;}</style>
+					</defs>
+					<polygon class="cls-1" points="256.17 78.47 0 72.29 9.31 6.18 271.32 0 256.17 78.47"/>
+					<text class="st2" style="font-size: 30px;" transform="translate(26.56 48.96)">Novo vprašanje</text>
+				</svg>
+			</a>
+		</div>
+		<div class="col s10 offset-s1 m6 offset-m3 l4 offset-l4 center knofi">
+			<a id="resitve" target="_blank" class="col s12 l6 offset-l3">
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 271.3 78.5" style="enable-background:new 0 0 271.3 78.5;" xml:space="preserve">
+					<style type="text/css">
+						.st0{fill:#FFFFFF;}
+						.st1{font-family:'ArialMT';}
+						.st2{font-size:30px;}
+					</style>
+					<path class="st0" d="M229.1,4.3  l35.3,69.9  L5,68.2  l11.3-57.9  L229.1,4.3  M231.7,0  L12.8,6.2  L0,72.3  l271.3,6.2  L231.7,0  L231.7,0z"/>
+					<text transform="matrix(1 0 0 1 80.3133 50.9748)" class="st0 st1 st2">Rešitve</text>
+				</svg>
+			</a>
+		</div>
+	</div>
+</div>
+
+<footer class="page-footer row white">
+	<div class="col s12">
+		<div class="col s10 offset-s1 black-text">
+			<p class="footerText center-align hide-on-large-only">Zaupajte vase in v svoje sposobnosti<br><a id="disclaimer" class="footerTextBtnSmall left-align">Disclaimer</a></p>
+			<p class="footerText right-align hide-on-med-and-down"><a id="disclaimer" class="footerTextBtnBig left-align">Disclaimer</a>Zaupajte vase in v svoje sposobnosti</p>
+		</div>
+	</div>
+</footer>
+
+<div id="disclaimerModal" class="modal center">
+	<div class="modal-content">
+		<h4>Notice of Non-Affiliation and Disclaimer </h4>
+		<p>We are not affiliated, associated, authorized, endorsed by, or in any way officially connected with National Examinations Centre - RIC, or any of its subsidiaries or its affiliates. The official RIC website can be found at www.ric.si. The name “Državni izpitni center” as well as related names, marks, emblems and images are trademarks of National Examinations Centre - RIC.</p>
+	</div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
