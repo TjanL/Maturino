@@ -84,8 +84,8 @@ class Database(object):
 		columns = [col[0] for col in cursor.description]
 		return [dict(zip(columns, row)) for row in cursor.fetchall()]
 
-	def get_rendom_exercise(self, subject, level, year, term):
-		return choice(self.get_exercises(subject, level, year, term))
+	def get_rendom_exercise(self, subject, pola, level, year, term):
+		return choice(self.get_exercises(subject, pola, level, year, term))
 
 	def get_img_path(self, img_id):
 		db, cursor = self.connect()
