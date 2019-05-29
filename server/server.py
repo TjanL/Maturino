@@ -42,10 +42,11 @@ class Api(object):
 		cherrypy.response.headers['Content-Type'] = "application/json"
 		if params:
 			subject = params.get("subject", "%")
+			pola = params.get("pola", "%")
 			level = params.get("level", "%")
 			year = params.get("year", "%")
 			term = params.get("term", "%")
-			return json.dumps(self.db.get_rendom_exercise(subject, level, year, term), ensure_ascii=False).encode("utf-8")
+			return json.dumps(self.db.get_rendom_exercise(subject, pola, level, year, term), ensure_ascii=False).encode("utf-8")
 		return str([]).encode("utf-8")
 
 	@cherrypy.expose
@@ -72,10 +73,10 @@ class Database(object):
 		cursor = db.cursor()
 		return db, cursor
 
-	def get_exercises(self, subject, level, year, term):
+	def get_exercises(self, subject, pola, level, year, term):
 		db, cursor = self.connect()
 
-		stmt = 'SELECT p.Naziv as predmet, n.Nivo as raven, YEAR(n.Date) as leto, n.Rok as rok, d.UUID as dodatno, n.UUID as img, r.Url as rešitve FROM Naloga n, Rešitve r, Dodatno d, Predmet p WHERE n.Predmet=p.ID AND n.Dodatno=d.ID and n.Rešitve=r.ID and p.naziv=%s AND n.nivo LIKE %s AND YEAR(n.Date) LIKE %s AND n.Rok LIKE %s'
+		stmt = 'SELECT p.Naziv as predmet, n.Pola as pola, n.Nivo as raven, YEAR(n.Date) as leto, n.Rok as rok, d.UUID as dodatno, n.UUID as img, r.Url as rešitve FROM Naloga n, Rešitve r, Dodatno d, Predmet p WHERE n.Predmet=p.ID AND n.Dodatno=d.ID and n.Rešitve=r.ID and p.naziv=%s AND n.Pola LIKE %s AND n.nivo LIKE %s AND YEAR(n.Date) LIKE %s AND n.Rok LIKE %s'
 
 		cursor.execute(stmt, [subject, level, year, term])
 		db.close()
