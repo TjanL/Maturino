@@ -78,7 +78,7 @@ class Database(object):
 
 		stmt = 'SELECT p.Naziv as predmet, n.Pola as pola, n.Nivo as raven, YEAR(n.Date) as leto, n.Rok as rok, d.UUID as dodatno, n.UUID as img, r.Url as rešitve FROM Naloga n, Rešitve r, Dodatno d, Predmet p WHERE n.Predmet=p.ID AND n.Dodatno=d.ID and n.Rešitve=r.ID and p.naziv=%s AND n.Pola LIKE %s AND n.nivo LIKE %s AND YEAR(n.Date) LIKE %s AND n.Rok LIKE %s'
 
-		cursor.execute(stmt, [subject, level, year, term])
+		cursor.execute(stmt, [subject, pola, level, year, term])
 		db.close()
 
 		columns = [col[0] for col in cursor.description]
