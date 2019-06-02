@@ -40,8 +40,8 @@ class Api(object):
 	@cherrypy.tools.accept(media='text/plain')
 	def naloga(self, **params):
 		cherrypy.response.headers['Content-Type'] = "application/json"
-		if params:
-			subject = params.get("subject", "%")
+		if params.get("subject"):
+			subject = params.get("subject")
 			pola = params.get("pola", "%")
 			level = params.get("level", "%")
 			year = params.get("year", "%")
@@ -53,19 +53,16 @@ class Api(object):
 	@cherrypy.tools.allow(methods=["GET"])
 	@cherrypy.tools.accept(media='text/plain')
 	def image(self, **params):
-		if params:
-			img_id = params.get("i")
-			if img_id:
-				path = self.db.get_img_path(img_id)
-				if path:
-					bytes_io = BytesIO()
-					img = Image.open(path)
-					img.save(bytes_io, 'PNG')
+		if params.get("i"):
+			path = self.db.get_img_path(params.get("i"))
+			if path:
+				bytes_io = BytesIO()
+				img = Image.open(path)
+				img.save(bytes_io, 'PNG')
 
-					cherrypy.response.headers['Content-Type'] = "image/png"
-					return bytes_io.getvalue()
+				cherrypy.response.headers['Content-Type'] = "image/png"
+				return bytes_io.getvalue()
 		return None
-
 
 class Database(object):
 	def connect(self, user="admin"):
