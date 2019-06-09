@@ -1,48 +1,71 @@
+function gen_option(text, value=null) {
+	if (value == null) value = text;
+	return "<option value='" + value + "'>" + text + "</option>";
+}
+
 $('.sidenav').sidenav();
 $('select').formSelect();
 $('.materialboxed').materialbox();
 $("#disclaimerModal").modal();
 
-$("#predmet").change(function() {
-	var options = {
-		"slovenščina": "vr"
+var options;
+$.get({
+	url: "/api/options",
+	success: function(data) {
+		options = data;
+		var predmeti = Object.keys(data);
+		for (var i = 0; i < predmeti.length; i++) {
+			$("#Predmet").append(gen_option(predmeti[i]));
+		}
+		$("#Predmet").formSelect();
+	},
+	dataType: "json"
+});
+
+$("#Predmet").change(function() {
+	var full_name = {
+		"or": "Osnovna",
+		"vr": "Višja",
+		"jesen": "Jesenski",
+		"pomlad": "Spomladanski"
 	}
 
-	$("#raven").html("");
-	var predmet = $("#predmet").val();
-	if (predmet in options) {
-		var full_name = options[predmet] == "or" ? "Osnovna" : "Višja";
-		$("#raven").append("<option value='" + options[predmet] + "' selected>" + full_name + "</option>");
-
-	} else {
-		$("#raven").append("<option value='' selected>Naključno</option>");
-		$("#raven").append("<option value='or'>Osnovna</option>");
-		$("#raven").append("<option value='vr'>Višja</option>");
+	var predmet = $("#Predmet").val();
+	var option_keys = Object.keys(options[predmet]);
+	for (var n = 0; n < option_keys.length; n++) {
+		$("#" + option_keys[n]).html("");
+		if (options[predmet][option_keys[n]].length > 1) {
+			$("#" + option_keys[n]).append(gen_option("Naključno", ""));
+		}
+		for (var i = 0; i < options[predmet][option_keys[n]].length; i++) {
+			var value = options[predmet][option_keys[n]][i];
+			var text = Object.keys(full_name).includes(value) ? full_name[value] : value;
+			$("#" + option_keys[n]).append(gen_option(text, value));
+		}
+		$("#" + option_keys[n]).formSelect();
 	}
-	$("#raven").formSelect();
 })
 
 $("#Show, #ShowNew").click(function() {
-	var req = {};
-	if ($('#predmet').val()) {
-		req["subject"] = $('#predmet').val();
-	}
-	if ($('#raven').val()) {
-		req["level"] = $('#raven').val();
-	}
-	if ($('#leto').val()) {
-		req["year"] = $('#leto').val();
-	}
-	if ($('#rok').val()) {
-		req["term"] = $('#rok').val();
-	}
-
-	if ($('#predmet').val() == null) {
+	if ($('#Predmet').val() == null) {
 		M.toast({
 			html: 'Prosim izberi predmet',
 			classes: 'toast'
 		})
 	} else {
+		var req = {};
+		if ($('#Predmet').val()) {
+			req["subject"] = $('#Predmet').val();
+		}
+		if ($('#Nivo').val()) {
+			req["level"] = $('#Nivo').val();
+		}
+		if ($('#Leto').val()) {
+			req["year"] = $('#Leto').val();
+		}
+		if ($('#Rok').val()) {
+			req["term"] = $('#Rok').val();
+		}
 		$.get({
 			url: "/api/naloga?" + $.param(req),
 			success: function(data) {

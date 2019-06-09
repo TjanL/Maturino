@@ -38,6 +38,14 @@ class Api(object):
 	@cherrypy.expose
 	@cherrypy.tools.allow(methods=["GET"])
 	@cherrypy.tools.accept(media='text/plain')
+	def options(self, **params):
+		cherrypy.response.headers['Content-Type'] = "application/json"
+		return json.dumps(self.db.get_options(), ensure_ascii=False).encode("utf-8")
+
+
+	@cherrypy.expose
+	@cherrypy.tools.allow(methods=["GET"])
+	@cherrypy.tools.accept(media='text/plain')
 	def naloga(self, **params):
 		cherrypy.response.headers['Content-Type'] = "application/json"
 		if params.get("subject"):
@@ -94,6 +102,28 @@ class Database(object):
 
 		row = cursor.fetchone()[0]
 		return row
+
+	def get_options(self):
+		db, cursor = self.connect()
+
+		stmt = 'SELECT p.Naziv, n.Nivo, YEAR(n.Date) as Leto, n.Rok FROM Predmet p, Naloga n WHERE p.ID = n.Predmet GROUP BY p.Naziv, n.Nivo, n.Date, n.Rok;'
+
+		cursor.execute(stmt)
+		db.close()
+
+		columns = [col[0] for col in cursor.description]
+		rows = [dict(zip(columns, row)) for row in cursor.fetchall()]
+
+		flat = {}
+		for row in rows:
+			predmet = row.pop("Naziv")
+			flat.setdefault(predmet, {})
+			for key, value in row.items():
+				if value not in flat[predmet].setdefault(key, []):
+					flat[predmet][key].extend([value])
+				flat[predmet][key].sort(reverse=True)
+
+		return flat
 
 
 if __name__ == '__main__':
