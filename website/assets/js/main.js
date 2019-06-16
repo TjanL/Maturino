@@ -71,7 +71,10 @@ $("#Show, #ShowNew").click(function() {
 			success: function(data) {
 				$('#maturaInfo').text(data["predmet"] + ", " + data["rok"] + " " + data["leto"]);
 
-				$('#img-priloga').attr("src", "/api/image?i=" + data["dodatno"]);
+				if (data["dodatno"]) {
+					$('#img-priloga').attr("src", "/api/image?i=" + data["dodatno"]);
+					$("#priloga").show();
+				}
 				$('#img-naloga').attr("src", "/api/image?i=" + data["img"]);
 				$('#resitve').attr("href", data["rešitve"]);
 
@@ -94,3 +97,7 @@ $("#Show, #ShowNew").click(function() {
 		});
 	}
 })
+
+$("#btn-priloga").click(function() {
+	$("#img-area-priloga").toggle();
+});
