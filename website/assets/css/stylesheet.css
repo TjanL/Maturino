@@ -34,6 +34,14 @@ nav {
 #Task {
 	transform: skewY(-5deg);
 	background: black;
+}
+
+.clickable {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.hidden {
 	display: none;
 }
 
